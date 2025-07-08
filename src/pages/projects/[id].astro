@@ -1,6 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+export async function getStaticPaths() {
+  // Pour le mode statique, on génère quelques exemples
+  return [
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+    { params: { id: '3' } },
+    { params: { id: '4' } }
+  ];
+}
+
 // Simulation des données du projet - À remplacer par des vraies données depuis la DB
 const { id } = Astro.params;
 

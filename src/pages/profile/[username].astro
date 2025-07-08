@@ -2,6 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard';
 
+export async function getStaticPaths() {
+  // Pour le mode statique, on génère quelques exemples
+  return [
+    { params: { username: 'marie_dubois' } },
+    { params: { username: 'lucas_dev' } },
+    { params: { username: 'emma_r' } },
+    { params: { username: 'antoine_tech' } }
+  ];
+}
+
 // Simulation des données utilisateur - À remplacer par des vraies données depuis la DB
 const { username } = Astro.params;
 
