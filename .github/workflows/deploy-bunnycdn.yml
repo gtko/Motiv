@@ -26,6 +26,9 @@ jobs:
       run: npm run build
       env:
         NODE_ENV: production
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        PUBLIC_DATABASE_URL: ${{ vars.PUBLIC_DATABASE_URL }}
+        AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
 
     - name: Deploy to BunnyCDN Storage
       env:
