@@ -1,0 +1,393 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Leaderboard from '../components/Leaderboard';
+
+const topUsers = [
+  {
+    position: 1,
+    user: { id: '1', name: 'Marie Dubois', avatar: null },
+    totalPoints: 12850,
+    projectCount: 15,
+    trend: 'up' as const,
+    badges: ['🏆', '⚡', '🎯', '🔥'],
+    recentActivity: '2 heures',
+    monthlyGain: 2340
+  },
+  {
+    position: 2,
+    user: { id: '2', name: 'Jean Martin', avatar: null },
+    totalPoints: 11340,
+    projectCount: 12,
+    trend: 'stable' as const,
+    badges: ['💎', '🚀', '⭐'],
+    recentActivity: '5 heures',
+    monthlyGain: 1890
+  },
+  {
+    position: 3,
+    user: { id: '3', name: 'Sophie Bernard', avatar: null },
+    totalPoints: 10890,
+    projectCount: 14,
+    trend: 'up' as const,
+    badges: ['🎨', '💡', '🏅'],
+    recentActivity: '1 jour',
+    monthlyGain: 3210
+  },
+  {
+    position: 4,
+    user: { id: '4', name: 'Thomas Petit', avatar: null },
+    totalPoints: 9560,
+    projectCount: 10,
+    trend: 'down' as const,
+    badges: ['🛠️', '📈'],
+    recentActivity: '3 jours',
+    monthlyGain: 980
+  },
+  {
+    position: 5,
+    user: { id: '5', name: 'Emma Rousseau', avatar: null },
+    totalPoints: 8230,
+    projectCount: 11,
+    trend: 'up' as const,
+    badges: ['🌟', '🎯', '💪'],
+    recentActivity: '6 heures',
+    monthlyGain: 2100
+  },
+  {
+    position: 6,
+    user: { id: '6', name: 'Lucas Moreau', avatar: null },
+    totalPoints: 7890,
+    projectCount: 9,
+    trend: 'up' as const,
+    badges: ['🚀', '⚡'],
+    recentActivity: '2 jours',
+    monthlyGain: 1650
+  },
+  {
+    position: 7,
+    user: { id: '7', name: 'Léa Garcia', avatar: null },
+    totalPoints: 7120,
+    projectCount: 8,
+    trend: 'stable' as const,
+    badges: ['🎨', '💎'],
+    recentActivity: '12 heures',
+    monthlyGain: 1200
+  },
+  {
+    position: 8,
+    user: { id: '8', name: 'Antoine Lefebvre', avatar: null },
+    totalPoints: 6540,
+    projectCount: 7,
+    trend: 'down' as const,
+    badges: ['📈'],
+    recentActivity: '4 jours',
+    monthlyGain: 450
+  },
+  {
+    position: 9,
+    user: { id: '9', name: 'Camille Dupont', avatar: null },
+    totalPoints: 5980,
+    projectCount: 8,
+    trend: 'up' as const,
+    badges: ['🌟', '🏅'],
+    recentActivity: '1 jour',
+    monthlyGain: 1780
+  },
+  {
+    position: 10,
+    user: { id: '10', name: 'Maxime Robert', avatar: null },
+    totalPoints: 5230,
+    projectCount: 6,
+    trend: 'stable' as const,
+    badges: ['💡'],
+    recentActivity: '3 heures',
+    monthlyGain: 890
+  }
+];
+
+const categories = [
+  { name: 'Global', icon: '🌍', active: true },
+  { name: 'Mensuel', icon: '📅', active: false },
+  { name: 'Hebdomadaire', icon: '📊', active: false },
+  { name: 'Projets SaaS', icon: '💼', active: false },
+  { name: 'Jeux', icon: '🎮', active: false },
+  { name: 'Open Source', icon: '🔓', active: false }
+];
+
+const achievements = [
+  { name: 'First Place', icon: '🥇', description: 'Finir 1er du classement global', rarity: 'Légendaire' },
+  { name: 'Streak Master', icon: '🔥', description: '30 jours d\'activité consécutive', rarity: 'Épique' },
+  { name: 'Project Champion', icon: '🏆', description: '10 projets avec +1000 points', rarity: 'Épique' },
+  { name: 'Community Hero', icon: '🦸', description: 'Aider 50 autres créateurs', rarity: 'Rare' }
+];
+---
+
+<Layout title="Classement">
+  <!-- Hero Section -->
+  <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-[#0f0f23] to-blue-900/30"></div>
+    
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
+        <span class="gradient-text">Classement Global</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300">
+        Les créateurs les plus actifs et innovants de notre communauté
+      </p>
+    </div>
+  </section>
+
+  <!-- Categories Tabs -->
+  <section class="py-8 sticky top-20 z-40 bg-[#0f0f23]/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        {categories.map((category) => (
+          <button class={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+            category.active 
+              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' 
+              : 'glass-effect border border-white/10 text-gray-300 hover:bg-white/10'
+          }`}>
+            <span class="text-lg">{category.icon}</span>
+            {category.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Top 3 Podium -->
+  <section class="py-16 -mt-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-3 gap-4 items-end mb-16">
+        <!-- 2nd Place -->
+        <div class="text-center">
+          <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-transform">
+            <div class="text-6xl mb-4">🥈</div>
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center text-3xl font-bold">
+              {topUsers[1].user.name.charAt(0)}
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">{topUsers[1].user.name}</h3>
+            <p class="text-3xl font-black gradient-text mb-2">{topUsers[1].totalPoints.toLocaleString()}</p>
+            <p class="text-sm text-gray-400">{topUsers[1].projectCount} projets</p>
+          </div>
+        </div>
+        
+        <!-- 1st Place -->
+        <div class="text-center -mt-8">
+          <div class="relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-75 animate-pulse"></div>
+            <div class="relative glass-effect rounded-2xl p-8 transform hover:scale-105 transition-transform">
+              <div class="text-7xl mb-4">🥇</div>
+              <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-4xl font-bold shadow-2xl">
+                {topUsers[0].user.name.charAt(0)}
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-1">{topUsers[0].user.name}</h3>
+              <p class="text-4xl font-black gradient-text mb-2">{topUsers[0].totalPoints.toLocaleString()}</p>
+              <p class="text-sm text-gray-400">{topUsers[0].projectCount} projets</p>
+              <div class="mt-4 flex justify-center gap-1">
+                {topUsers[0].badges.slice(0, 4).map((badge) => (
+                  <span class="text-2xl">{badge}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 3rd Place -->
+        <div class="text-center">
+          <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-transform">
+            <div class="text-6xl mb-4">🥉</div>
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-3xl font-bold">
+              {topUsers[2].user.name.charAt(0)}
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">{topUsers[2].user.name}</h3>
+            <p class="text-3xl font-black gradient-text mb-2">{topUsers[2].totalPoints.toLocaleString()}</p>
+            <p class="text-sm text-gray-400">{topUsers[2].projectCount} projets</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Leaderboard -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- Main Leaderboard -->
+        <div class="lg:col-span-8">
+          <div class="glass-effect rounded-3xl overflow-hidden">
+            <div class="p-6 border-b border-white/10">
+              <h2 class="text-2xl font-bold text-white">Top 100 Créateurs</h2>
+            </div>
+            
+            <div class="divide-y divide-white/10">
+              {topUsers.slice(3).map((user, index) => (
+                <div class="p-6 hover:bg-white/5 transition-colors">
+                  <div class="flex items-center gap-6">
+                    <!-- Position -->
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-gray-400">#{user.position}</div>
+                      {user.trend === 'up' && <span class="text-green-400 text-xs">▲</span>}
+                      {user.trend === 'down' && <span class="text-red-400 text-xs">▼</span>}
+                      {user.trend === 'stable' && <span class="text-gray-400 text-xs">-</span>}
+                    </div>
+                    
+                    <!-- Avatar -->
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg">
+                      {user.user.name.charAt(0)}
+                    </div>
+                    
+                    <!-- User Info -->
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-white">{user.user.name}</h3>
+                      <div class="flex items-center gap-4 text-sm text-gray-400">
+                        <span>{user.projectCount} projets</span>
+                        <span>•</span>
+                        <span>Actif {user.recentActivity}</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Badges -->
+                    <div class="hidden md:flex gap-1">
+                      {user.badges.map((badge) => (
+                        <span class="text-xl">{badge}</span>
+                      ))}
+                    </div>
+                    
+                    <!-- Points -->
+                    <div class="text-right">
+                      <div class="text-2xl font-bold gradient-text">{user.totalPoints.toLocaleString()}</div>
+                      <div class="text-xs text-green-400">+{user.monthlyGain} ce mois</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <!-- Load More -->
+            <div class="p-6 text-center border-t border-white/10">
+              <button class="px-6 py-3 rounded-full glass-effect border border-white/20 text-white hover:bg-white/10 transition-all">
+                Charger plus
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="lg:col-span-4 space-y-8">
+          <!-- Your Rank -->
+          <div class="glass-effect rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Votre position</h3>
+            <div class="text-center py-6">
+              <div class="text-5xl font-black gradient-text mb-2">#42</div>
+              <p class="text-gray-400 mb-4">Vous êtes dans le top 5%!</p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Points totaux</span>
+                  <span class="text-white font-semibold">3,450</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Ce mois</span>
+                  <span class="text-green-400 font-semibold">+680</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Achievements Showcase -->
+          <div class="glass-effect rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Achievements rares</h3>
+            <div class="space-y-4">
+              {achievements.map((achievement) => (
+                <div class="flex items-start gap-3">
+                  <span class="text-3xl">{achievement.icon}</span>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-white">{achievement.name}</h4>
+                    <p class="text-xs text-gray-400">{achievement.description}</p>
+                    <span class={`inline-block mt-1 px-2 py-0.5 rounded text-xs font-medium ${
+                      achievement.rarity === 'Légendaire' ? 'bg-yellow-500/20 text-yellow-400' :
+                      achievement.rarity === 'Épique' ? 'bg-purple-500/20 text-purple-400' :
+                      'bg-blue-500/20 text-blue-400'
+                    }`}>
+                      {achievement.rarity}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Stats Overview -->
+          <div class="glass-effect rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Statistiques globales</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-400">Utilisateurs actifs</span>
+                  <span class="text-sm font-semibold text-white">2,847</span>
+                </div>
+                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 78%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-400">Points distribués ce mois</span>
+                  <span class="text-sm font-semibold text-white">145,230</span>
+                </div>
+                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-400">Nouveaux projets</span>
+                  <span class="text-sm font-semibold text-white">342</span>
+                </div>
+                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+  
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-40px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
