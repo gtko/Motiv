@@ -1,22 +1,70 @@
 #!/bin/bash
 
-echo "=== Configuration des secrets GitHub pour BunnyCDN ==="
+echo "=== Configuration des secrets GitHub pour Motiv ==="
 echo ""
-echo "Ce script va vous aider à configurer les secrets nécessaires pour le déploiement automatique."
+echo "Ce script va vous aider à configurer les secrets et variables nécessaires pour le déploiement."
 echo ""
-echo "Vous aurez besoin des informations suivantes depuis votre compte BunnyCDN :"
-echo "1. Le nom de votre Storage Zone"
-echo "2. Le mot de passe FTP/API de votre Storage Zone"
-echo "3. L'endpoint de votre région (ex: storage, ny.storage, la.storage)"
-echo "4. Votre clé API BunnyCDN"
-echo "5. L'ID de votre Pull Zone"
+echo "Vous aurez besoin des informations suivantes :"
+echo "1. DATABASE_URL - Votre string de connexion Neon Database"
+echo "2. PUBLIC_DATABASE_URL - Même valeur (pour le client-side)"
+echo "3. AUTH_SECRET - Clé secrète pour l'authentification"
+echo "4. BUNNY_STORAGE_ZONE - Nom de votre Storage Zone BunnyCDN"
+echo "5. BUNNY_STORAGE_PASSWORD - Mot de passe FTP/API"
+echo "6. BUNNY_STORAGE_ENDPOINT - Endpoint de votre région"
+echo "7. BUNNY_API_KEY - Clé API BunnyCDN"
+echo "8. BUNNY_PULL_ZONE_ID - ID de votre Pull Zone"
 echo ""
 echo "Appuyez sur Entrée pour continuer..."
 read
 
+# Database Configuration
+echo ""
+echo "=== Configuration Database (Neon) ==="
+echo ""
+echo "1. DATABASE_URL"
+echo "Entrez votre string de connexion Neon Database :"
+echo "Format: postgresql://user:password@host.neon.tech/dbname?sslmode=require"
+read -s -p "> " DATABASE_URL
+echo ""
+if [ -n "$DATABASE_URL" ]; then
+    gh secret set DATABASE_URL --body "$DATABASE_URL"
+    echo "✓ DATABASE_URL configuré"
+fi
+
+echo ""
+echo "2. PUBLIC_DATABASE_URL"
+echo "Utiliser la même valeur pour PUBLIC_DATABASE_URL ? (o/N)"
+read -p "> " USE_SAME_DB
+if [[ "$USE_SAME_DB" =~ ^[Oo]$ ]]; then
+    gh variable set PUBLIC_DATABASE_URL --body "$DATABASE_URL"
+    echo "✓ PUBLIC_DATABASE_URL configuré (même valeur)"
+else
+    echo "Entrez la valeur pour PUBLIC_DATABASE_URL :"
+    read -s -p "> " PUBLIC_DATABASE_URL
+    echo ""
+    if [ -n "$PUBLIC_DATABASE_URL" ]; then
+        gh variable set PUBLIC_DATABASE_URL --body "$PUBLIC_DATABASE_URL"
+        echo "✓ PUBLIC_DATABASE_URL configuré"
+    fi
+fi
+
+echo ""
+echo "3. AUTH_SECRET"
+echo "Entrez votre clé secrète pour l'authentification :"
+echo "(Génération aléatoire recommandée - ex: openssl rand -hex 32)"
+read -s -p "> " AUTH_SECRET
+echo ""
+if [ -n "$AUTH_SECRET" ]; then
+    gh secret set AUTH_SECRET --body "$AUTH_SECRET"
+    echo "✓ AUTH_SECRET configuré"
+fi
+
+echo ""
+echo "=== Configuration BunnyCDN ==="
+
 # Storage Zone
 echo ""
-echo "1. BUNNY_STORAGE_ZONE"
+echo "4. BUNNY_STORAGE_ZONE"
 echo "Entrez le nom de votre Storage Zone BunnyCDN :"
 read -p "> " STORAGE_ZONE
 if [ -n "$STORAGE_ZONE" ]; then
@@ -26,7 +74,7 @@ fi
 
 # Storage Password
 echo ""
-echo "2. BUNNY_STORAGE_PASSWORD"
+echo "5. BUNNY_STORAGE_PASSWORD"
 echo "Entrez le mot de passe FTP/API de votre Storage Zone :"
 echo "(Le mot de passe ne sera pas affiché pour des raisons de sécurité)"
 read -s -p "> " STORAGE_PASSWORD
@@ -38,7 +86,7 @@ fi
 
 # Storage Endpoint
 echo ""
-echo "3. BUNNY_STORAGE_ENDPOINT"
+echo "6. BUNNY_STORAGE_ENDPOINT"
 echo "Sélectionnez votre région :"
 echo "  1) Europe (Falkenstein) - storage"
 echo "  2) New York - ny.storage"
@@ -61,7 +109,7 @@ echo "✓ BUNNY_STORAGE_ENDPOINT configuré : $ENDPOINT"
 
 # API Key
 echo ""
-echo "4. BUNNY_API_KEY"
+echo "7. BUNNY_API_KEY"
 echo "Entrez votre clé API BunnyCDN principale :"
 echo "(Trouvable dans Account Settings → API → API Key)"
 read -s -p "> " API_KEY
@@ -73,7 +121,7 @@ fi
 
 # Pull Zone ID
 echo ""
-echo "5. BUNNY_PULL_ZONE_ID"
+echo "8. BUNNY_PULL_ZONE_ID"
 echo "Entrez l'ID de votre Pull Zone :"
 echo "(Trouvable dans CDN → Votre Pull Zone → URL ou détails)"
 read -p "> " PULL_ZONE_ID
@@ -88,7 +136,11 @@ echo ""
 echo "Secrets configurés :"
 gh secret list
 echo ""
+echo "Variables configurées :"
+gh variable list
+echo ""
 echo "Vous pouvez maintenant :"
 echo "1. Faire un push pour déclencher le déploiement automatique"
 echo "2. Ou déclencher manuellement : gh workflow run deploy-bunnycdn.yml"
+echo "3. Tester localement avec vos variables d'environnement"
 echo ""
