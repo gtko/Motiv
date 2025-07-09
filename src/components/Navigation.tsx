@@ -8,10 +8,20 @@ export default function Navigation() {
     isAuthenticated: false
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const unsubscribe = authClient.subscribe(setAuthState);
     return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleLogout = () => {
@@ -20,40 +30,43 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="glass-effect rounded-2xl px-6 py-4 flex items-center justify-between">
-          {/* Logo avec effet de hover magnétique */}
-          <a href="/" className="flex items-center gap-3 magnetic-hover group">
-            <div className="relative">
-              <img src="/assets/logo-motiv.png" alt="Motiv" className="w-12 h-12 rounded-xl" />
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-lg"></div>
-            </div>
-            <span className="text-2xl font-bold gradient-text">Motiv</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'py-2' : 'py-4'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className={`
+          relative rounded-xl px-6 py-3 flex items-center justify-between transition-all duration-300
+          ${isScrolled 
+            ? 'bg-white/50 backdrop-blur-lg border border-neutral-200/50 shadow-soft' 
+            : 'bg-white/90 backdrop-blur-sm border border-neutral-200'
+          }
+        `}>
+          {/* Logo simple */}
+          <a href="/" className="flex items-center gap-3">
+            <img src="/assets/logo-motiv.png" alt="Motiv" className="w-10 h-10 rounded-lg" />
+            <span className="text-xl font-bold text-neutral-800">Motiv</span>
           </a>
           
-          {/* Menu central avec indicateur actif */}
-          <div className="hidden md:flex items-center gap-1 bg-white/5 rounded-full p-1">
-            <a href="/" className="px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-all">Accueil</a>
-            <a href="/projects" className="px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-all">Projets</a>
-            <a href="/leaderboard" className="px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-all">Classement</a>
+          {/* Menu central */}
+          <div className="hidden md:flex items-center gap-6">
+            <a href="/" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Accueil</a>
+            <a href="/projects" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Projets</a>
+            <a href="/leaderboard" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Classement</a>
+            <a href="/about" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">À propos</a>
           </div>
           
           {/* Actions utilisateur */}
           <div className="flex items-center gap-4">
             {authState.isAuthenticated && authState.user ? (
               <>
-                <button className="relative p-2 rounded-lg hover:bg-white/10 transition-all">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button className="relative p-2 rounded-lg hover:bg-neutral-100 transition-all">
+                  <svg className="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-gradient-to-r from-pink-500 to-red-500 rounded-full"></span>
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent-500 rounded-full"></span>
                 </button>
                 
-                <a href="/projects/new" className="btn-glow bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                  </svg>
+                <a href="/projects/new" className="btn-primary text-sm">
                   Nouveau projet
                 </a>
                 
@@ -63,35 +76,35 @@ export default function Navigation() {
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="flex items-center gap-2 cursor-pointer"
                   >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-[2px]">
-                      <div className="w-full h-full rounded-full bg-[#0f0f23] flex items-center justify-center text-sm font-bold">
+                    <div className="w-9 h-9 rounded-full bg-primary-100 border border-primary-300 flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-700">
                         {authState.user.name ? authState.user.name.charAt(0) : authState.user.username.charAt(0)}
-                      </div>
+                      </span>
                     </div>
-                    <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-[#0f0f23]"></span>
+                    <span className="absolute bottom-0 right-0 w-3 h-3 bg-primary-500 rounded-full border-2 border-white"></span>
                   </button>
                   
                   {/* Dropdown menu */}
                   {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 py-2 glass-effect rounded-xl">
+                    <div className="absolute right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-soft-lg border border-neutral-200">
                       <a 
                         href={`/profile/${authState.user.username}`} 
-                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                        className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
                         onClick={() => setIsDropdownOpen(false)}
                       >
                         Mon profil
                       </a>
                       <a 
                         href="/settings" 
-                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                        className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
                         onClick={() => setIsDropdownOpen(false)}
                       >
                         Paramètres
                       </a>
-                      <hr className="my-2 border-white/10" />
+                      <hr className="my-2 border-neutral-200" />
                       <button 
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                        className="w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
                       >
                         Déconnexion
                       </button>
@@ -101,10 +114,10 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <a href="/login" className="px-6 py-2.5 rounded-full text-sm font-semibold text-white hover:text-purple-400 transition-colors">
+                <a href="/login" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">
                   Connexion
                 </a>
-                <a href="/register" className="btn-glow bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
+                <a href="/register" className="btn-primary text-sm">
                   S'inscrire
                 </a>
               </>

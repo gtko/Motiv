@@ -89,166 +89,115 @@ const leaderboardEntries = [
     totalPoints: 1890,
     projectCount: 3,
     trend: 'up' as const
-  },
-  {
-    position: 4,
-    user: { id: '4', name: 'Thomas Petit', avatar: null },
-    totalPoints: 1560,
-    projectCount: 2,
-    trend: 'down' as const
-  },
-  {
-    position: 5,
-    user: { id: '5', name: 'Emma Rousseau', avatar: null },
-    totalPoints: 1230,
-    projectCount: 3,
-    trend: 'up' as const
   }
 ];
 ---
 
 <Layout title="Accueil">
-  <!-- Hero Section avec effet parallax et particules -->
-  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden particles-bg py-20">
-    <!-- Gradient background animé -->
-    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-[#0f0f23] to-blue-900/30"></div>
-    
-    <!-- Cercles flottants animés -->
-    <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-      <div class="absolute top-3/4 left-3/4 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-float-slow"></div>
-    </div>
+  <!-- Hero Section simple -->
+  <section class="relative min-h-[80vh] flex items-center justify-center bg-white py-20">
     
     <div class="relative z-10 max-w-7xl mx-auto px-8 text-center">
-      <!-- Logo central avec effet 3D -->
-      <div class="mb-16 flex justify-center">
-        <div class="relative group">
-          <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-          <img src="/assets/logo-motiv.png" alt="Motiv" class="relative w-32 h-32 rounded-3xl shadow-2xl transform group-hover:scale-110 transition-transform duration-500" />
-        </div>
+      <!-- Logo plus discret -->
+      <div class="mb-12 flex justify-center">
+        <img src="/assets/logo-motiv.png" alt="Motiv" class="w-20 h-20 rounded-xl" />
       </div>
       
-      <!-- Titre principal avec effet glitch -->
-      <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-        <span class="gradient-text">Transformez</span>
-        <br />
-        <span class="text-white">vos idées en</span>
-        <br />
-        <span class="glitch gradient-text" data-text="réalité">réalité</span>
+      <!-- Titre principal accessible -->
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-neutral-800 max-w-4xl mx-auto">
+        La communauté des 
+        <span class="text-neutral-900">entrepreneurs solo</span>
+        qui partagent leurs projets
       </h1>
       
-      <!-- Sous-titre avec animation typewriter -->
-      <p class="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed">
-        La plateforme qui gamifie l'innovation et célèbre chaque ligne de code. 
-        <span class="text-purple-400 font-semibold">Depuis 1995</span>, nous transformons les projets en aventures épiques.
+      <!-- Sous-titre pratique -->
+      <p class="text-lg md:text-xl text-neutral-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+        Rejoignez des développeurs et créateurs qui construisent leurs business en ligne depuis leur bureau. 
+        Partagez vos projets, échangez des conseils, progressez ensemble.
       </p>
       
-      <!-- Boutons d'action avec effet néon -->
-      <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-        <a href="/projects/new" class="group relative inline-flex">
-          <span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></span>
-          <span class="relative bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full flex items-center gap-3 text-white font-bold text-lg">
-            <svg class="w-6 h-6 transform group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Lancer un projet
-          </span>
+      <!-- Boutons d'action simples -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/register" class="btn-primary">
+          Rejoindre la communauté
         </a>
         
-        <a href="#demo" class="group relative inline-flex">
-          <span class="relative px-8 py-4 rounded-full glass-effect border border-white/20 flex items-center gap-3 text-white font-semibold hover:bg-white/10 transition-all">
-            <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Voir la démo
-          </span>
+        <a href="/projects" class="btn-ghost">
+          Explorer les projets
         </a>
       </div>
       
-      <!-- Indicateur de scroll animé -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div class="w-6 h-10 border-2 border-white/30 rounded-full p-1">
-          <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+      <!-- Stats communautaires -->
+      <div class="mt-16 flex flex-wrap justify-center gap-8 text-center">
+        <div>
+          <div class="text-2xl font-bold text-neutral-800">{stats.activeUsers}</div>
+          <div class="text-sm text-neutral-600">Membres actifs</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-neutral-800">{stats.totalProjects}</div>
+          <div class="text-sm text-neutral-600">Projets partagés</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-accent-500">100%</div>
+          <div class="text-sm text-neutral-600">Gratuit</div>
         </div>
       </div>
+      
     </div>
   </section>
 
-  <!-- Section des statistiques avec effet counter -->
-  <section class="py-32 relative">
+  <!-- Section des statistiques communautaires -->
+  <section class="py-20 bg-neutral-50">
     <div class="max-w-7xl mx-auto px-8">
-      <!-- Titre de section avec ligne animée -->
-      <div class="text-center mb-20 relative">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-64 h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
-        </div>
-        <h2 class="relative inline-block bg-[#0f0f23] px-8 text-4xl font-bold gradient-text">
-          Impact en temps réel
+      <!-- Titre de section simple -->
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-semibold text-neutral-800">
+          Ce que partagent nos membres
         </h2>
       </div>
       
-      <!-- Grille de stats avec cartes 3D et espacement amélioré -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
-        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
-          <div class="text-5xl font-black score-counter gradient-text mb-2">{stats.totalProjects}</div>
-          <div class="text-sm text-gray-400 uppercase tracking-wider">Projets publiés</div>
-          <div class="mt-4 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+      <!-- Catégories de projets -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="text-center p-6">
+          <div class="text-4xl mb-3">🛠</div>
+          <div class="text-lg font-semibold text-neutral-800">SaaS</div>
+          <div class="text-sm text-neutral-600">Applications web</div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
-          <div class="text-5xl font-black score-counter text-green-400 mb-2">{stats.liveProjects}</div>
-          <div class="text-sm text-gray-400 uppercase tracking-wider">En production</div>
-          <div class="mt-4 h-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-3">🌐</div>
+          <div class="text-lg font-semibold text-neutral-800">Sites web</div>
+          <div class="text-sm text-neutral-600">Portfolio & blogs</div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
-          <div class="text-5xl font-black score-counter text-blue-400 mb-2">{stats.totalVisitors.toLocaleString()}</div>
-          <div class="text-sm text-gray-400 uppercase tracking-wider">Visiteurs totaux</div>
-          <div class="mt-4 h-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-3">📱</div>
+          <div class="text-lg font-semibold text-neutral-800">Apps mobiles</div>
+          <div class="text-sm text-neutral-600">iOS & Android</div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
-          <div class="text-5xl font-black score-counter text-orange-400 mb-2">+{stats.monthlyGrowth}%</div>
-          <div class="text-sm text-gray-400 uppercase tracking-wider">Croissance</div>
-          <div class="mt-4 h-1 bg-gradient-to-r from-orange-400 to-amber-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-3">🎮</div>
+          <div class="text-lg font-semibold text-neutral-800">Jeux</div>
+          <div class="text-sm text-neutral-600">Indie games</div>
         </div>
       </div>
       
-      <!-- Ligne de progression globale -->
-      <div class="mt-20">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-sm text-gray-400">Progression vers l'objectif mensuel</span>
-          <span class="text-sm font-bold gradient-text">78%</span>
-        </div>
-        <div class="h-2 bg-white/5 rounded-full overflow-hidden">
-          <div class="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-full animate-pulse" style="width: 78%"></div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Section principale avec layout amélioré -->
-  <section class="py-32 relative" id="demo">
+  <!-- Section des projets récents -->
+  <section class="py-20 bg-white" id="demo">
     <div class="max-w-7xl mx-auto px-8">
-      <div class="grid lg:grid-cols-12 gap-16">
-        <!-- Projets récents avec espacements améliorés -->
-        <div class="lg:col-span-8 space-y-8">
-          <div class="flex items-center justify-between mb-16">
-            <div>
-              <h2 class="text-4xl font-bold text-white mb-3">Projets en vedette</h2>
-              <p class="text-gray-400 text-lg">Les dernières créations de notre communauté</p>
-            </div>
-            <a href="/projects" class="group flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
-              <span class="text-sm font-medium">Tout explorer</span>
-              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+      <div class="grid lg:grid-cols-12 gap-12">
+        <!-- Projets récents -->
+        <div class="lg:col-span-8">
+          <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-neutral-800 mb-2">Projets récents de la communauté</h2>
+            <p class="text-neutral-600">Découvrez ce sur quoi travaillent les membres</p>
           </div>
           
-          <div class="space-y-16">
+          <div class="space-y-6">
             {recentProjects.map((project) => (
               <ProjectCard project={project} client:load />
             ))}
@@ -257,171 +206,74 @@ const leaderboardEntries = [
         
         <!-- Sidebar avec leaderboard et badges améliorés -->
         <div class="lg:col-span-4 space-y-16">
-          <!-- Leaderboard avec effet glow -->
-          <div class="relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20"></div>
-            <div class="relative w-full">
-              <Leaderboard entries={leaderboardEntries} client:load />
-            </div>
+          <!-- Leaderboard simple -->
+          <div class="w-full">
+            <Leaderboard entries={leaderboardEntries} client:load />
           </div>
           
-          <!-- Section badges récents -->
-          <div class="glass-effect rounded-2xl p-10">
-            <h3 class="text-2xl font-bold text-white mb-10 flex items-center gap-3">
-              <span class="text-3xl">🏆</span>
-              Badges récents
+          <!-- Section conseils rapides -->
+          <div class="card-minimal rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-neutral-800 mb-4">
+              Conseils de la communauté
             </h3>
             
-            <div class="grid grid-cols-2 gap-8">
-              <div class="group cursor-pointer">
-                <div class="aspect-square rounded-xl overflow-hidden relative">
-                  <img src="/assets/events-badges.png" alt="Hackathon Badge" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                    <div>
-                      <div class="text-xs text-purple-400 font-semibold">HACKATHON</div>
-                      <div class="text-sm text-white">Champion 2025</div>
-                    </div>
-                  </div>
-                </div>
+            <div class="space-y-4">
+              <div class="p-4 bg-primary-50 rounded-lg">
+                <p class="text-sm text-neutral-700 mb-2">
+                  "💡 Commencez petit mais soyez régulier. Mon SaaS a commencé avec 10 utilisateurs."
+                </p>
+                <p class="text-xs text-neutral-600">- Marie D.</p>
               </div>
               
-              <div class="group cursor-pointer">
-                <div class="aspect-square rounded-xl overflow-hidden relative">
-                  <img src="/assets/collaboration-badges.png" alt="Mentor Badge" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                    <div>
-                      <div class="text-xs text-green-400 font-semibold">MENTORAT</div>
-                      <div class="text-sm text-white">Guide Expert</div>
-                    </div>
-                  </div>
-                </div>
+              <div class="p-4 bg-neutral-50 rounded-lg">
+                <p class="text-sm text-neutral-700 mb-2">
+                  "🚀 Le feedback des autres membres m'a aidé à pivoter au bon moment."
+                </p>
+                <p class="text-xs text-neutral-600">- Thomas P.</p>
               </div>
               
-              <div class="group cursor-pointer">
-                <div class="aspect-square rounded-xl overflow-hidden relative">
-                  <img src="/assets/daily-badges.png" alt="Daily Challenge" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                    <div>
-                      <div class="text-xs text-orange-400 font-semibold">DÉFI QUOTIDIEN</div>
-                      <div class="text-sm text-white">30 jours</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="group cursor-pointer">
-                <div class="aspect-square rounded-xl overflow-hidden relative">
-                  <img src="/assets/actions-badges.png" alt="Impact Badge" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                    <div>
-                      <div class="text-xs text-blue-400 font-semibold">IMPACT</div>
-                      <div class="text-sm text-white">1K Visiteurs</div>
-                    </div>
-                  </div>
-                </div>
+              <div class="p-4 bg-accent-50 rounded-lg">
+                <p class="text-sm text-neutral-700 mb-2">
+                  "🌱 Partagez vos échecs aussi, on apprend tous ensemble ici."
+                </p>
+                <p class="text-xs text-neutral-600">- Sophie B.</p>
               </div>
             </div>
-            
-            <a href="/badges" class="mt-10 block text-center text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
-              Voir toute la collection →
-            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section CTA finale avec effet de vague -->
-  <section class="relative py-40 overflow-hidden">
-    <!-- Vague animée SVG -->
-    <div class="absolute inset-0">
-      <svg class="absolute bottom-0 w-full h-64" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="url(#wave-gradient)" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-          <animate attributeName="d" dur="20s" repeatCount="indefinite" values="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;M0,64L48,96C96,128,192,192,288,192C384,192,480,128,576,90.7C672,53,768,43,864,64C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
-        </path>
-        <defs>
-          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-    
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
-      <h2 class="text-5xl md:text-6xl font-black mb-8">
-        <span class="gradient-text">Prêt à transformer</span>
-        <br />
-        <span class="text-white">votre prochain projet ?</span>
+  <!-- Section CTA finale communautaire -->
+  <section class="relative py-20 bg-primary-50">
+    <div class="relative max-w-3xl mx-auto px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-neutral-800">
+        Rejoignez des entrepreneurs comme vous
       </h2>
       
-      <p class="text-xl text-gray-300 mb-12">
-        Rejoignez une communauté de créateurs passionnés et donnez vie à vos idées les plus ambitieuses.
+      <p class="text-lg text-neutral-600 mb-8 max-w-xl mx-auto">
+        Partagez vos projets, obtenez des retours constructifs et progressez avec d'autres créateurs indépendants.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-8 justify-center">
-        <a href="/register" class="group relative inline-flex">
-          <span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></span>
-          <span class="relative bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-5 rounded-full text-lg font-bold text-white">
-            Commencer gratuitement
-          </span>
-        </a>
-        
-        <a href="/contact" class="glass-effect border border-white/20 px-10 py-5 rounded-full text-lg font-semibold text-white hover:bg-white/10 transition-all inline-flex items-center">
-          Contacter l'équipe
+      <div class="flex justify-center">
+        <a href="/register" class="btn-primary px-8 py-3">
+          Rejoindre gratuitement
         </a>
       </div>
       
-      <div class="mt-16 flex items-center justify-center gap-10 text-sm text-gray-400">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          Sans carte de crédit
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          Setup en 2 minutes
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          Support 24/7
-        </div>
+      <div class="mt-8 text-sm text-neutral-500">
+        Aucune carte bancaire requise • 100% gratuit
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  /* Animations personnalisées */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-30px); }
-  }
-  
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-40px); }
-  }
-  
-  @keyframes float-slow {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-float-delayed {
-    animation: float-delayed 8s ease-in-out infinite;
-  }
-  
-  .animate-float-slow {
-    animation: float-slow 10s ease-in-out infinite;
+  /* Styles minimalistes */
+  .bg-pattern {
+    background-image: 
+      radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 </style>

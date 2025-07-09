@@ -4,45 +4,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Palette principale - Violet/Indigo moderne
+        // Palette principale - Vert motivation/détermination
         primary: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-          950: '#2e1065',
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',  // Vert principal
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+          950: '#052e16',
         },
-        // Couleurs secondaires
-        secondary: {
-          // Cyan moderne
-          cyan: {
-            400: '#22d3ee',
-            500: '#06b6d4',
-            600: '#0891b2',
-          },
-          // Rose subtil
-          pink: {
-            400: '#f472b6',
-            500: '#ec4899',
-            600: '#db2777',
-          },
+        // Couleur complémentaire - Orange doux (énergie, créativité)
+        accent: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',  // Orange principal
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
         },
-        // Couleurs sombres pour backgrounds
-        dark: {
-          bg: '#0a0a1b',
-          surface: '#12122d',
-          accent: '#1a1a3e',
-          border: 'rgba(255, 255, 255, 0.08)',
+        // Nuances de gris minimalistes
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+        },
+        // Couleurs pour backgrounds
+        background: {
+          main: '#ffffff',
+          subtle: '#fafafa',
+          accent: '#f0fdf4',
+          border: '#e5e5e5',
         },
         // Couleurs d'état
-        success: '#10b981',
-        warning: '#f59e0b',
+        success: '#22c55e',
+        warning: '#f97316',
         error: '#ef4444',
       },
       spacing: {
@@ -63,8 +74,9 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(139, 92, 246, 0.3)',
-        'glow-lg': '0 0 40px rgba(139, 92, 246, 0.4)',
+        'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'soft-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       },
     },
   },
