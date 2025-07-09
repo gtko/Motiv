@@ -91,7 +91,7 @@ export default function Leaderboard({ entries }: LeaderboardProps) {
       
       <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
         {/* En-tête avec effet gradient */}
-        <div className="relative p-6 border-b border-white/10 overflow-hidden">
+        <div className="relative p-8 border-b border-white/10 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20"></div>
           <div className="relative flex items-center justify-between">
             <h2 className="text-2xl font-black text-white flex items-center gap-3">
@@ -112,7 +112,7 @@ export default function Leaderboard({ entries }: LeaderboardProps) {
             <div
               key={entry.user.id}
               className={`
-                relative p-6 transition-all duration-300 cursor-pointer
+                relative p-8 transition-all duration-300 cursor-pointer
                 ${hoveredEntry === entry.user.id ? 'bg-white/5' : ''}
                 ${entry.position <= 3 ? 'bg-gradient-to-r ' + getPositionGradient(entry.position) : ''}
               `}
@@ -128,14 +128,14 @@ export default function Leaderboard({ entries }: LeaderboardProps) {
                 </div>
               )}
               
-              <div className="relative flex items-center gap-4">
+              <div className="relative flex items-center gap-6">
                 {/* Position avec médaille */}
                 <div className="flex items-center justify-center w-12">
                   {getMedalComponent(entry.position)}
                 </div>
                 
                 {/* Avatar et informations utilisateur */}
-                <div className="flex-1 flex items-center gap-4">
+                <div className="flex-1 flex items-center gap-5">
                   <div className="relative">
                     <div className={`
                       w-12 h-12 rounded-full p-[2px]
@@ -175,7 +175,7 @@ export default function Leaderboard({ entries }: LeaderboardProps) {
                 </div>
                 
                 {/* Points et tendance */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                   {getTrendIcon(entry.trend, entry.position <= 3)}
                   <div className="text-right">
                     <div className={`
@@ -212,7 +212,7 @@ export default function Leaderboard({ entries }: LeaderboardProps) {
         </div>
         
         {/* Pied de page avec action */}
-        <div className="p-4 border-t border-white/10 bg-gradient-to-r from-purple-600/5 to-pink-600/5">
+        <div className="p-6 border-t border-white/10 bg-gradient-to-r from-purple-600/5 to-pink-600/5">
           <a 
             href="/leaderboard" 
             className="flex items-center justify-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors"

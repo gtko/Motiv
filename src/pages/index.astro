@@ -109,7 +109,7 @@ const leaderboardEntries = [
 
 <Layout title="Accueil">
   <!-- Hero Section avec effet parallax et particules -->
-  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden particles-bg">
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden particles-bg py-20">
     <!-- Gradient background animé -->
     <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-[#0f0f23] to-blue-900/30"></div>
     
@@ -120,9 +120,9 @@ const leaderboardEntries = [
       <div class="absolute top-3/4 left-3/4 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-float-slow"></div>
     </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <div class="relative z-10 max-w-7xl mx-auto px-8 text-center">
       <!-- Logo central avec effet 3D -->
-      <div class="mb-12 flex justify-center">
+      <div class="mb-16 flex justify-center">
         <div class="relative group">
           <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
           <img src="/assets/logo-motiv.png" alt="Motiv" class="relative w-32 h-32 rounded-3xl shadow-2xl transform group-hover:scale-110 transition-transform duration-500" />
@@ -130,7 +130,7 @@ const leaderboardEntries = [
       </div>
       
       <!-- Titre principal avec effet glitch -->
-      <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+      <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
         <span class="gradient-text">Transformez</span>
         <br />
         <span class="text-white">vos idées en</span>
@@ -139,13 +139,13 @@ const leaderboardEntries = [
       </h1>
       
       <!-- Sous-titre avec animation typewriter -->
-      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed">
         La plateforme qui gamifie l'innovation et célèbre chaque ligne de code. 
         <span class="text-purple-400 font-semibold">Depuis 1995</span>, nous transformons les projets en aventures épiques.
       </p>
       
       <!-- Boutons d'action avec effet néon -->
-      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
         <a href="/projects/new" class="group relative inline-flex">
           <span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></span>
           <span class="relative bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-full flex items-center gap-3 text-white font-bold text-lg">
@@ -177,10 +177,10 @@ const leaderboardEntries = [
   </section>
 
   <!-- Section des statistiques avec effet counter -->
-  <section class="py-24 relative">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-8">
       <!-- Titre de section avec ligne animée -->
-      <div class="text-center mb-16 relative">
+      <div class="text-center mb-20 relative">
         <div class="absolute inset-0 flex items-center justify-center">
           <div class="w-64 h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
         </div>
@@ -190,26 +190,26 @@ const leaderboardEntries = [
       </div>
       
       <!-- Grille de stats avec cartes 3D et espacement amélioré -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="card-3d glass-effect rounded-2xl p-10 text-center group cursor-pointer">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
           <div class="text-5xl font-black score-counter gradient-text mb-2">{stats.totalProjects}</div>
           <div class="text-sm text-gray-400 uppercase tracking-wider">Projets publiés</div>
           <div class="mt-4 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-10 text-center group cursor-pointer">
+        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
           <div class="text-5xl font-black score-counter text-green-400 mb-2">{stats.liveProjects}</div>
           <div class="text-sm text-gray-400 uppercase tracking-wider">En production</div>
           <div class="mt-4 h-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-10 text-center group cursor-pointer">
+        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
           <div class="text-5xl font-black score-counter text-blue-400 mb-2">{stats.totalVisitors.toLocaleString()}</div>
           <div class="text-sm text-gray-400 uppercase tracking-wider">Visiteurs totaux</div>
           <div class="mt-4 h-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
         </div>
         
-        <div class="card-3d glass-effect rounded-2xl p-10 text-center group cursor-pointer">
+        <div class="card-3d glass-effect rounded-2xl p-12 text-center group cursor-pointer">
           <div class="text-5xl font-black score-counter text-orange-400 mb-2">+{stats.monthlyGrowth}%</div>
           <div class="text-sm text-gray-400 uppercase tracking-wider">Croissance</div>
           <div class="mt-4 h-1 bg-gradient-to-r from-orange-400 to-amber-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
@@ -217,7 +217,7 @@ const leaderboardEntries = [
       </div>
       
       <!-- Ligne de progression globale -->
-      <div class="mt-16">
+      <div class="mt-20">
         <div class="flex items-center justify-between mb-4">
           <span class="text-sm text-gray-400">Progression vers l'objectif mensuel</span>
           <span class="text-sm font-bold gradient-text">78%</span>
@@ -230,12 +230,12 @@ const leaderboardEntries = [
   </section>
 
   <!-- Section principale avec layout amélioré -->
-  <section class="py-24 relative" id="demo">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-12 gap-12">
+  <section class="py-32 relative" id="demo">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid lg:grid-cols-12 gap-16">
         <!-- Projets récents avec espacements améliorés -->
-        <div class="lg:col-span-8">
-          <div class="flex items-center justify-between mb-12">
+        <div class="lg:col-span-8 space-y-8">
+          <div class="flex items-center justify-between mb-16">
             <div>
               <h2 class="text-4xl font-bold text-white mb-3">Projets en vedette</h2>
               <p class="text-gray-400 text-lg">Les dernières créations de notre communauté</p>
@@ -248,7 +248,7 @@ const leaderboardEntries = [
             </a>
           </div>
           
-          <div class="space-y-10">
+          <div class="space-y-16">
             {recentProjects.map((project) => (
               <ProjectCard project={project} client:load />
             ))}
@@ -256,7 +256,7 @@ const leaderboardEntries = [
         </div>
         
         <!-- Sidebar avec leaderboard et badges améliorés -->
-        <div class="lg:col-span-4 space-y-10">
+        <div class="lg:col-span-4 space-y-16">
           <!-- Leaderboard avec effet glow -->
           <div class="relative">
             <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20"></div>
@@ -266,13 +266,13 @@ const leaderboardEntries = [
           </div>
           
           <!-- Section badges récents -->
-          <div class="glass-effect rounded-2xl p-8">
-            <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+          <div class="glass-effect rounded-2xl p-10">
+            <h3 class="text-2xl font-bold text-white mb-10 flex items-center gap-3">
               <span class="text-3xl">🏆</span>
               Badges récents
             </h3>
             
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-2 gap-8">
               <div class="group cursor-pointer">
                 <div class="aspect-square rounded-xl overflow-hidden relative">
                   <img src="/assets/events-badges.png" alt="Hackathon Badge" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
@@ -322,7 +322,7 @@ const leaderboardEntries = [
               </div>
             </div>
             
-            <a href="/badges" class="mt-8 block text-center text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
+            <a href="/badges" class="mt-10 block text-center text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
               Voir toute la collection →
             </a>
           </div>
@@ -332,7 +332,7 @@ const leaderboardEntries = [
   </section>
 
   <!-- Section CTA finale avec effet de vague -->
-  <section class="relative py-32 overflow-hidden">
+  <section class="relative py-40 overflow-hidden">
     <!-- Vague animée SVG -->
     <div class="absolute inset-0">
       <svg class="absolute bottom-0 w-full h-64" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -348,18 +348,18 @@ const leaderboardEntries = [
       </svg>
     </div>
     
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl md:text-6xl font-black mb-6">
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <h2 class="text-5xl md:text-6xl font-black mb-8">
         <span class="gradient-text">Prêt à transformer</span>
         <br />
         <span class="text-white">votre prochain projet ?</span>
       </h2>
       
-      <p class="text-xl text-gray-300 mb-10">
+      <p class="text-xl text-gray-300 mb-12">
         Rejoignez une communauté de créateurs passionnés et donnez vie à vos idées les plus ambitieuses.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <div class="flex flex-col sm:flex-row gap-8 justify-center">
         <a href="/register" class="group relative inline-flex">
           <span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></span>
           <span class="relative bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-5 rounded-full text-lg font-bold text-white">
@@ -372,7 +372,7 @@ const leaderboardEntries = [
         </a>
       </div>
       
-      <div class="mt-12 flex items-center justify-center gap-8 text-sm text-gray-400">
+      <div class="mt-16 flex items-center justify-center gap-10 text-sm text-gray-400">
         <div class="flex items-center gap-2">
           <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />

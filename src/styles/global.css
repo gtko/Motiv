@@ -5,23 +5,28 @@
 /* Variables CSS personnalisées */
 :root {
   /* Couleurs principales - Gradient moderne */
-  --color-primary-start: #667eea;
-  --color-primary-end: #764ba2;
-  --color-accent-start: #00d2ff;
-  --color-accent-end: #3a7bd5;
+  --color-primary-start: #8b5cf6;
+  --color-primary-end: #7c3aed;
+  --color-accent-start: #06b6d4;
+  --color-accent-end: #0891b2;
   
   /* Couleurs sombres pour contraste */
-  --color-dark-bg: #0f0f23;
-  --color-dark-surface: #1a1a2e;
-  --color-dark-accent: #16213e;
+  --color-dark-bg: #0a0a1b;
+  --color-dark-surface: #12122d;
+  --color-dark-accent: #1a1a3e;
   
   /* Effets glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
   
   /* Animations */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Espacements personnalisés */
+  --spacing-section: 8rem;
+  --spacing-component: 2.5rem;
+  --spacing-element: 1.5rem;
 }
 
 /* Reset et base */
@@ -56,7 +61,7 @@
   
   /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-400 via-secondary-pink-500 to-primary-500 bg-clip-text text-transparent;
     background-size: 200% auto;
     animation: gradient-shift 3s ease infinite;
   }
@@ -121,7 +126,7 @@
       radial-gradient(1px 1px at 200px 10px, white, transparent);
     background-size: 200px 200px;
     animation: particles-move 60s linear infinite;
-    opacity: 0.3;
+    opacity: 0.2;
   }
   
   /* Badge avec animation */
@@ -191,9 +196,9 @@
   /* Ombres créatives */
   .shadow-neon {
     box-shadow: 
-      0 0 10px rgba(102, 126, 234, 0.5),
-      0 0 20px rgba(102, 126, 234, 0.3),
-      0 0 30px rgba(102, 126, 234, 0.1);
+      0 0 10px rgba(139, 92, 246, 0.4),
+      0 0 20px rgba(139, 92, 246, 0.2),
+      0 0 30px rgba(139, 92, 246, 0.1);
   }
   
   .shadow-depth {
@@ -232,16 +237,16 @@
   
   .glitch::before {
     animation: glitch-1 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-    color: #00d2ff;
+    color: #06b6d4;
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.6;
   }
   
   .glitch::after {
     animation: glitch-2 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-    color: #ff006e;
+    color: #ec4899;
     z-index: -2;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 }
 

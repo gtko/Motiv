@@ -82,11 +82,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <div className={`absolute -inset-1 bg-gradient-to-r ${type.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
       
       {/* Carte principale */}
-      <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300">
+      <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-10 border border-white/10 hover:border-white/20 transition-all duration-300">
         {/* En-tête avec badges */}
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex items-start justify-between mb-8">
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-4 mb-4">
               <span className="text-3xl">{type.icon}</span>
               <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
                 {project.title}
@@ -95,7 +95,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-gray-400 leading-relaxed">{project.description}</p>
           </div>
           
-          <div className="flex flex-col items-end gap-2 ml-4">
+          <div className="flex flex-col items-end gap-3 ml-6">
             <span className={`px-3 py-1 rounded-full text-xs font-semibold ${status.bgColor} ${status.color} backdrop-blur-sm`}>
               {status.label}
             </span>
@@ -106,51 +106,51 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Grille de statistiques */}
-        <div className="grid grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-4 gap-6 mb-8">
           {/* Points totaux avec animation */}
-          <div className="text-center p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 group/stat hover:scale-105 transition-transform">
+          <div className="text-center p-5 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 group/stat hover:scale-105 transition-transform">
             <div className="flex items-center justify-center mb-2">
               <Zap className="w-5 h-5 text-purple-400" />
             </div>
-            <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+            <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
               {project.totalPoints}
             </div>
             <div className="text-xs text-gray-500 mt-1">Points</div>
           </div>
           
           {/* GitHub Stars */}
-          <div className="text-center p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 group/stat hover:scale-105 transition-transform">
+          <div className="text-center p-5 rounded-xl bg-yellow-500/10 border border-yellow-500/20 group/stat hover:scale-105 transition-transform">
             <div className="flex items-center justify-center mb-2">
               <Star className="w-5 h-5 text-yellow-400" />
             </div>
-            <div className="text-3xl font-black text-yellow-400">{project.githubStars}</div>
+            <div className="text-2xl font-black text-yellow-400">{project.githubStars}</div>
             <div className="text-xs text-gray-500 mt-1">Stars</div>
           </div>
           
           {/* Visiteurs */}
-          <div className="text-center p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 group/stat hover:scale-105 transition-transform">
+          <div className="text-center p-5 rounded-xl bg-blue-500/10 border border-blue-500/20 group/stat hover:scale-105 transition-transform">
             <div className="flex items-center justify-center mb-2">
               <Users className="w-5 h-5 text-blue-400" />
             </div>
-            <div className="text-3xl font-black text-blue-400">
+            <div className="text-2xl font-black text-blue-400">
               {project.uniqueVisitors > 999 ? `${(project.uniqueVisitors/1000).toFixed(1)}k` : project.uniqueVisitors}
             </div>
             <div className="text-xs text-gray-500 mt-1">Visiteurs</div>
           </div>
           
           {/* Uptime */}
-          <div className="text-center p-4 rounded-xl bg-green-500/10 border border-green-500/20 group/stat hover:scale-105 transition-transform">
+          <div className="text-center p-5 rounded-xl bg-green-500/10 border border-green-500/20 group/stat hover:scale-105 transition-transform">
             <div className="flex items-center justify-center mb-2">
               <Activity className="w-5 h-5 text-green-400" />
             </div>
-            <div className="text-3xl font-black text-green-400">{project.uptime}%</div>
+            <div className="text-2xl font-black text-green-400">{project.uptime}%</div>
             <div className="text-xs text-gray-500 mt-1">Uptime</div>
           </div>
         </div>
 
         {/* Barre de progression des points */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-2">
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-3">
             <span className="text-xs text-gray-400">Progression vers le prochain niveau</span>
             <span className="text-xs font-semibold text-purple-400">
               {Math.floor((project.totalPoints % 1000) / 10)}%
@@ -186,7 +186,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
           
           {/* Boutons d'action */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {project.githubUrl && (
               <a 
                 href={project.githubUrl} 
