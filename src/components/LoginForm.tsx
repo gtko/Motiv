@@ -39,28 +39,21 @@ export default function LoginForm() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background with particles */}
+    <section className="relative min-h-screen flex items-center justify-center bg-white">
+      {/* Simple pattern background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-[#0f0f23] to-blue-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
         
-        {/* Floating elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-float-slow"></div>
+        {/* Simple geometric shapes */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-primary-100 rounded-full opacity-20"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent-100 rounded-full opacity-20"></div>
         
-        {/* Geometric shapes */}
-        <div className="absolute top-20 left-20 w-4 h-4 bg-purple-400/30 rotate-45 animate-bounce"></div>
-        <div className="absolute bottom-20 right-20 w-3 h-3 bg-blue-400/30 rounded-full animate-ping"></div>
-        <div className="absolute top-40 right-40 w-2 h-2 bg-pink-400/30 rounded-full animate-pulse"></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="grid grid-cols-12 gap-4 h-full">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="border-l border-white/10 h-full"></div>
-            ))}
-          </div>
+        {/* Dot pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }}></div>
         </div>
       </div>
       
@@ -70,31 +63,31 @@ export default function LoginForm() {
           {/* Left side - Welcome content */}
           <div className="text-center lg:text-left">
             <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-purple-500 to-pink-500 mb-6 shadow-2xl">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-600 mb-6 shadow-soft">
                 <img src="/assets/logo-motiv.png" alt="Motiv" className="w-14 h-14" />
               </div>
-              <h1 className="text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-4 leading-tight">
                 Bon retour
                 <br />
-                <span className="gradient-text">créateur</span> !
+                <span className="text-primary-600">créateur</span> !
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-neutral-600 mb-8">
                 Reconnectez-vous à votre espace de création et continuez à transformer vos idées en réalité.
               </p>
               
               {/* Stats preview */}
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">2.5k</div>
-                  <div className="text-sm text-gray-400">Projets</div>
+                  <div className="text-2xl font-bold text-primary-600">2.5k</div>
+                  <div className="text-sm text-neutral-500">Projets</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400">890</div>
-                  <div className="text-sm text-gray-400">Créateurs</div>
+                  <div className="text-2xl font-bold text-accent-500">890</div>
+                  <div className="text-sm text-neutral-500">Créateurs</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-pink-400">15M</div>
-                  <div className="text-sm text-gray-400">Vues</div>
+                  <div className="text-2xl font-bold text-primary-500">15M</div>
+                  <div className="text-sm text-neutral-500">Vues</div>
                 </div>
               </div>
             </div>
@@ -102,38 +95,37 @@ export default function LoginForm() {
             {/* Features preview */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                <span className="text-gray-300">Tableau de bord personnalisé</span>
+                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                <span className="text-neutral-600">Tableau de bord personnalisé</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <span className="text-gray-300">Analytics en temps réel</span>
+                <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
+                <span className="text-neutral-600">Analytics en temps réel</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                <span className="text-gray-300">Communauté active</span>
+                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                <span className="text-neutral-600">Communauté active</span>
               </div>
             </div>
           </div>
           
           {/* Right side - Login form */}
           <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-20"></div>
-            <div className="relative glass-effect rounded-3xl p-8 lg:p-12">
+            <div className="bg-white rounded-3xl p-8 lg:p-12 border border-neutral-200 shadow-soft">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-white mb-2">Connexion</h2>
-                <p className="text-gray-400">Entrez vos identifiants pour continuer</p>
+                <h2 className="text-3xl font-bold text-neutral-800 mb-2">Connexion</h2>
+                <p className="text-neutral-600">Entrez vos identifiants pour continuer</p>
               </div>
 
               {error && (
-                <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
                   {error}
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="emailOrUsername" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="emailOrUsername" className="block text-sm font-medium text-neutral-700 mb-2">
                     Email ou nom d'utilisateur
                   </label>
                   <input
@@ -143,13 +135,13 @@ export default function LoginForm() {
                     required
                     value={formData.emailOrUsername}
                     onChange={handleChange}
-                    className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500 focus:bg-white/10 transition-all outline-none text-white placeholder-gray-400"
+                    className="w-full px-4 py-4 rounded-xl bg-neutral-50 border border-neutral-200 focus:border-primary-500 focus:bg-white transition-all outline-none text-neutral-800 placeholder-neutral-400"
                     placeholder="john@example.com ou @john_doe"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-400 mb-2">
+                  <label htmlFor="password" className="block text-sm font-medium text-neutral-700 mb-2">
                     Mot de passe
                   </label>
                   <input
@@ -159,7 +151,7 @@ export default function LoginForm() {
                     required
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-purple-500 focus:bg-white/10 transition-all outline-none text-white placeholder-gray-400"
+                    className="w-full px-4 py-4 rounded-xl bg-neutral-50 border border-neutral-200 focus:border-primary-500 focus:bg-white transition-all outline-none text-neutral-800 placeholder-neutral-400"
                     placeholder="••••••••"
                   />
                 </div>
@@ -168,11 +160,11 @@ export default function LoginForm() {
                   <label className="flex items-center gap-2">
                     <input
                       type="checkbox"
-                      className="w-4 h-4 rounded border-white/20 bg-white/5 text-purple-600 focus:ring-purple-500"
+                      className="w-4 h-4 rounded border-neutral-300 bg-white text-primary-600 focus:ring-primary-500"
                     />
-                    <span className="text-sm text-gray-400">Se souvenir de moi</span>
+                    <span className="text-sm text-neutral-600">Se souvenir de moi</span>
                   </label>
-                  <a href="/forgot-password" className="text-sm text-purple-400 hover:text-purple-300 transition-colors">
+                  <a href="/forgot-password" className="text-sm text-primary-600 hover:text-primary-700 transition-colors">
                     Mot de passe oublié ?
                   </a>
                 </div>
@@ -180,16 +172,16 @@ export default function LoginForm() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold shadow-soft hover:shadow-soft-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? 'Connexion...' : 'Se connecter'}
                 </button>
               </form>
 
               <div className="mt-8 text-center">
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-neutral-600">
                   Pas encore de compte ?
-                  <a href="/register" className="text-purple-400 hover:text-purple-300 font-medium ml-1 transition-colors">
+                  <a href="/register" className="text-primary-600 hover:text-primary-700 font-medium ml-1 transition-colors">
                     Créer un compte
                   </a>
                 </p>
@@ -199,34 +191,6 @@ export default function LoginForm() {
         </div>
       </div>
       
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-30px); }
-        }
-        
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-40px); }
-        }
-        
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-        }
-        
-        .animate-float-slow {
-          animation: float-slow 10s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 }

@@ -124,33 +124,34 @@ const achievements = [
 
 <Layout title="Classement">
   <!-- Hero Section -->
-  <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-[#0f0f23] to-blue-900/30"></div>
-    
+  <section class="relative min-h-[40vh] flex items-center justify-center bg-white">
     <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
+      
+      <!-- Simple geometric shapes -->
+      <div class="absolute top-1/4 left-1/3 w-64 h-64 bg-primary-100 rounded-full opacity-20"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-48 h-48 bg-accent-100 rounded-full opacity-20"></div>
     </div>
     
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
-        <span class="gradient-text">Classement Global</span>
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-neutral-800">
+        Classement Global
       </h1>
-      <p class="text-xl md:text-2xl text-gray-300">
+      <p class="text-xl md:text-2xl text-neutral-600">
         Les créateurs les plus actifs et innovants de notre communauté
       </p>
     </div>
   </section>
 
   <!-- Categories Tabs -->
-  <section class="py-8 sticky top-20 z-40 bg-[#0f0f23]/80 backdrop-blur-xl border-b border-white/10">
+  <section class="py-8 sticky top-20 z-40 bg-white/90 backdrop-blur-sm border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
         {categories.map((category) => (
           <button class={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
             category.active 
-              ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' 
-              : 'glass-effect border border-white/10 text-gray-300 hover:bg-white/10'
+              ? 'bg-primary-500 text-white shadow-soft' 
+              : 'bg-white border border-neutral-200 text-neutral-600 hover:bg-neutral-50'
           }`}>
             <span class="text-lg">{category.icon}</span>
             {category.name}
@@ -166,29 +167,28 @@ const achievements = [
       <div class="grid grid-cols-3 gap-4 items-end mb-16">
         <!-- 2nd Place -->
         <div class="text-center">
-          <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-transform">
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft transform hover:scale-105 transition-transform">
             <div class="text-6xl mb-4">🥈</div>
-            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center text-3xl font-bold">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-neutral-300 to-neutral-400 flex items-center justify-center text-3xl font-bold text-white">
               {topUsers[1].user.name.charAt(0)}
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">{topUsers[1].user.name}</h3>
-            <p class="text-3xl font-black gradient-text mb-2">{topUsers[1].totalPoints.toLocaleString()}</p>
-            <p class="text-sm text-gray-400">{topUsers[1].projectCount} projets</p>
+            <h3 class="text-xl font-bold text-neutral-800 mb-1">{topUsers[1].user.name}</h3>
+            <p class="text-3xl font-black text-primary-600 mb-2">{topUsers[1].totalPoints.toLocaleString()}</p>
+            <p class="text-sm text-neutral-600">{topUsers[1].projectCount} projets</p>
           </div>
         </div>
         
         <!-- 1st Place -->
         <div class="text-center -mt-8">
           <div class="relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-75 animate-pulse"></div>
-            <div class="relative glass-effect rounded-2xl p-8 transform hover:scale-105 transition-transform">
+            <div class="bg-white rounded-2xl p-8 border-2 border-accent-400 shadow-soft-lg transform hover:scale-105 transition-transform">
               <div class="text-7xl mb-4">🥇</div>
-              <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-4xl font-bold shadow-2xl">
+              <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent-400 to-accent-600 flex items-center justify-center text-4xl font-bold text-white shadow-soft">
                 {topUsers[0].user.name.charAt(0)}
               </div>
-              <h3 class="text-2xl font-bold text-white mb-1">{topUsers[0].user.name}</h3>
-              <p class="text-4xl font-black gradient-text mb-2">{topUsers[0].totalPoints.toLocaleString()}</p>
-              <p class="text-sm text-gray-400">{topUsers[0].projectCount} projets</p>
+              <h3 class="text-2xl font-bold text-neutral-800 mb-1">{topUsers[0].user.name}</h3>
+              <p class="text-4xl font-black text-accent-600 mb-2">{topUsers[0].totalPoints.toLocaleString()}</p>
+              <p class="text-sm text-neutral-600">{topUsers[0].projectCount} projets</p>
               <div class="mt-4 flex justify-center gap-1">
                 {topUsers[0].badges.slice(0, 4).map((badge) => (
                   <span class="text-2xl">{badge}</span>
@@ -200,14 +200,14 @@ const achievements = [
         
         <!-- 3rd Place -->
         <div class="text-center">
-          <div class="glass-effect rounded-2xl p-6 transform hover:scale-105 transition-transform">
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft transform hover:scale-105 transition-transform">
             <div class="text-6xl mb-4">🥉</div>
-            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-3xl font-bold">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-300 to-orange-400 flex items-center justify-center text-3xl font-bold text-white">
               {topUsers[2].user.name.charAt(0)}
             </div>
-            <h3 class="text-xl font-bold text-white mb-1">{topUsers[2].user.name}</h3>
-            <p class="text-3xl font-black gradient-text mb-2">{topUsers[2].totalPoints.toLocaleString()}</p>
-            <p class="text-sm text-gray-400">{topUsers[2].projectCount} projets</p>
+            <h3 class="text-xl font-bold text-neutral-800 mb-1">{topUsers[2].user.name}</h3>
+            <p class="text-3xl font-black text-accent-500 mb-2">{topUsers[2].totalPoints.toLocaleString()}</p>
+            <p class="text-sm text-neutral-600">{topUsers[2].projectCount} projets</p>
           </div>
         </div>
       </div>
@@ -215,37 +215,37 @@ const achievements = [
   </section>
 
   <!-- Full Leaderboard -->
-  <section class="py-16">
+  <section class="py-16 bg-neutral-50">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-12 gap-8">
         <!-- Main Leaderboard -->
         <div class="lg:col-span-8">
-          <div class="glass-effect rounded-3xl overflow-hidden">
-            <div class="p-6 border-b border-white/10">
-              <h2 class="text-2xl font-bold text-white">Top 100 Créateurs</h2>
+          <div class="bg-white rounded-3xl border border-neutral-200 shadow-soft overflow-hidden">
+            <div class="p-6 border-b border-neutral-200">
+              <h2 class="text-2xl font-bold text-neutral-800">Top 100 Créateurs</h2>
             </div>
             
-            <div class="divide-y divide-white/10">
+            <div class="divide-y divide-neutral-200">
               {topUsers.slice(3).map((user, index) => (
-                <div class="p-6 hover:bg-white/5 transition-colors">
+                <div class="p-6 hover:bg-neutral-50 transition-colors">
                   <div class="flex items-center gap-6">
                     <!-- Position -->
                     <div class="text-center">
-                      <div class="text-2xl font-bold text-gray-400">#{user.position}</div>
-                      {user.trend === 'up' && <span class="text-green-400 text-xs">▲</span>}
-                      {user.trend === 'down' && <span class="text-red-400 text-xs">▼</span>}
-                      {user.trend === 'stable' && <span class="text-gray-400 text-xs">-</span>}
+                      <div class="text-2xl font-bold text-neutral-500">#{user.position}</div>
+                      {user.trend === 'up' && <span class="text-primary-500 text-xs">▲</span>}
+                      {user.trend === 'down' && <span class="text-red-500 text-xs">▼</span>}
+                      {user.trend === 'stable' && <span class="text-neutral-400 text-xs">-</span>}
                     </div>
                     
                     <!-- Avatar -->
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center font-bold text-lg text-white">
                       {user.user.name.charAt(0)}
                     </div>
                     
                     <!-- User Info -->
                     <div class="flex-1">
-                      <h3 class="text-lg font-semibold text-white">{user.user.name}</h3>
-                      <div class="flex items-center gap-4 text-sm text-gray-400">
+                      <h3 class="text-lg font-semibold text-neutral-800">{user.user.name}</h3>
+                      <div class="flex items-center gap-4 text-sm text-neutral-600">
                         <span>{user.projectCount} projets</span>
                         <span>•</span>
                         <span>Actif {user.recentActivity}</span>
@@ -261,8 +261,8 @@ const achievements = [
                     
                     <!-- Points -->
                     <div class="text-right">
-                      <div class="text-2xl font-bold gradient-text">{user.totalPoints.toLocaleString()}</div>
-                      <div class="text-xs text-green-400">+{user.monthlyGain} ce mois</div>
+                      <div class="text-2xl font-bold text-primary-600">{user.totalPoints.toLocaleString()}</div>
+                      <div class="text-xs text-primary-500">+{user.monthlyGain} ce mois</div>
                     </div>
                   </div>
                 </div>
@@ -270,8 +270,8 @@ const achievements = [
             </div>
             
             <!-- Load More -->
-            <div class="p-6 text-center border-t border-white/10">
-              <button class="px-6 py-3 rounded-full glass-effect border border-white/20 text-white hover:bg-white/10 transition-all">
+            <div class="p-6 text-center border-t border-neutral-200">
+              <button class="px-6 py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 hover:bg-neutral-50 transition-all">
                 Charger plus
               </button>
             </div>
@@ -281,38 +281,38 @@ const achievements = [
         <!-- Sidebar -->
         <div class="lg:col-span-4 space-y-8">
           <!-- Your Rank -->
-          <div class="glass-effect rounded-2xl p-6">
-            <h3 class="text-xl font-bold text-white mb-4">Votre position</h3>
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft">
+            <h3 class="text-xl font-bold text-neutral-800 mb-4">Votre position</h3>
             <div class="text-center py-6">
-              <div class="text-5xl font-black gradient-text mb-2">#42</div>
-              <p class="text-gray-400 mb-4">Vous êtes dans le top 5%!</p>
+              <div class="text-5xl font-black text-primary-600 mb-2">#42</div>
+              <p class="text-neutral-600 mb-4">Vous êtes dans le top 5%!</p>
               <div class="space-y-2">
                 <div class="flex justify-between text-sm">
-                  <span class="text-gray-400">Points totaux</span>
-                  <span class="text-white font-semibold">3,450</span>
+                  <span class="text-neutral-600">Points totaux</span>
+                  <span class="text-neutral-800 font-semibold">3,450</span>
                 </div>
                 <div class="flex justify-between text-sm">
-                  <span class="text-gray-400">Ce mois</span>
-                  <span class="text-green-400 font-semibold">+680</span>
+                  <span class="text-neutral-600">Ce mois</span>
+                  <span class="text-primary-600 font-semibold">+680</span>
                 </div>
               </div>
             </div>
           </div>
           
           <!-- Achievements Showcase -->
-          <div class="glass-effect rounded-2xl p-6">
-            <h3 class="text-xl font-bold text-white mb-4">Achievements rares</h3>
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft">
+            <h3 class="text-xl font-bold text-neutral-800 mb-4">Achievements rares</h3>
             <div class="space-y-4">
               {achievements.map((achievement) => (
                 <div class="flex items-start gap-3">
                   <span class="text-3xl">{achievement.icon}</span>
                   <div class="flex-1">
-                    <h4 class="font-semibold text-white">{achievement.name}</h4>
-                    <p class="text-xs text-gray-400">{achievement.description}</p>
+                    <h4 class="font-semibold text-neutral-800">{achievement.name}</h4>
+                    <p class="text-xs text-neutral-600">{achievement.description}</p>
                     <span class={`inline-block mt-1 px-2 py-0.5 rounded text-xs font-medium ${
-                      achievement.rarity === 'Légendaire' ? 'bg-yellow-500/20 text-yellow-400' :
-                      achievement.rarity === 'Épique' ? 'bg-purple-500/20 text-purple-400' :
-                      'bg-blue-500/20 text-blue-400'
+                      achievement.rarity === 'Légendaire' ? 'bg-accent-100 text-accent-700' :
+                      achievement.rarity === 'Épique' ? 'bg-primary-100 text-primary-700' :
+                      'bg-neutral-100 text-neutral-700'
                     }`}>
                       {achievement.rarity}
                     </span>
@@ -323,36 +323,36 @@ const achievements = [
           </div>
           
           <!-- Stats Overview -->
-          <div class="glass-effect rounded-2xl p-6">
-            <h3 class="text-xl font-bold text-white mb-4">Statistiques globales</h3>
+          <div class="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft">
+            <h3 class="text-xl font-bold text-neutral-800 mb-4">Statistiques globales</h3>
             <div class="space-y-4">
               <div>
                 <div class="flex justify-between mb-2">
-                  <span class="text-sm text-gray-400">Utilisateurs actifs</span>
-                  <span class="text-sm font-semibold text-white">2,847</span>
+                  <span class="text-sm text-neutral-600">Utilisateurs actifs</span>
+                  <span class="text-sm font-semibold text-neutral-800">2,847</span>
                 </div>
-                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 78%"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="text-sm text-gray-400">Points distribués ce mois</span>
-                  <span class="text-sm font-semibold text-white">145,230</span>
-                </div>
-                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width: 65%"></div>
+                <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-primary-500 rounded-full" style="width: 78%"></div>
                 </div>
               </div>
               
               <div>
                 <div class="flex justify-between mb-2">
-                  <span class="text-sm text-gray-400">Nouveaux projets</span>
-                  <span class="text-sm font-semibold text-white">342</span>
+                  <span class="text-sm text-neutral-600">Points distribués ce mois</span>
+                  <span class="text-sm font-semibold text-neutral-800">145,230</span>
                 </div>
-                <div class="h-2 bg-white/5 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width: 85%"></div>
+                <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-accent-500 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-neutral-600">Nouveaux projets</span>
+                  <span class="text-sm font-semibold text-neutral-800">342</span>
+                </div>
+                <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-primary-500 rounded-full" style="width: 85%"></div>
                 </div>
               </div>
             </div>
@@ -364,24 +364,6 @@ const achievements = [
 </Layout>
 
 <style>
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-30px); }
-  }
-  
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-40px); }
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-float-delayed {
-    animation: float-delayed 8s ease-in-out infinite;
-  }
-  
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

@@ -159,22 +159,23 @@ export default function ProfilePage({ username }: ProfilePageProps) {
   const rank = getRankFromPoints(user.totalPoints);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-[#0f0f23] to-blue-900/30"></div>
-        
+      <section className="relative min-h-[40vh] flex items-center justify-center bg-white">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
+          
+          <!-- Simple geometric shapes -->
+          <div className="absolute top-1/4 left-1/4 w-56 h-56 bg-primary-100 rounded-full opacity-20"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent-100 rounded-full opacity-20"></div>
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
           <div className="flex flex-col md:flex-row items-center gap-8">
             {/* Avatar */}
             <div className="relative">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1">
-                <div className="w-full h-full rounded-full bg-[#0f0f23] flex items-center justify-center text-5xl font-bold text-white">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 p-1">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-5xl font-bold text-primary-600">
                   {user.name.charAt(0)}
                 </div>
               </div>
@@ -187,14 +188,14 @@ export default function ProfilePage({ username }: ProfilePageProps) {
             
             {/* User Info */}
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">{user.name}</h1>
-              <p className="text-xl text-purple-400 mb-4">@{user.username}</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 mb-2">{user.name}</h1>
+              <p className="text-xl text-primary-600 mb-4">@{user.username}</p>
               {user.bio && (
-                <p className="text-gray-300 max-w-2xl mb-6">{user.bio}</p>
+                <p className="text-neutral-600 max-w-2xl mb-6">{user.bio}</p>
               )}
               
               {/* Meta Info */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500">
                 {user.location && (
                   <div className="flex items-center gap-1">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,10 +222,10 @@ export default function ProfilePage({ username }: ProfilePageProps) {
             
             {/* Action Buttons */}
             <div className="flex flex-col gap-3">
-              <button className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+              <button className="px-6 py-3 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-semibold shadow-soft hover:shadow-soft-lg transition-all">
                 Suivre
               </button>
-              <button className="px-6 py-3 rounded-full glass-effect border border-white/20 text-white font-semibold hover:bg-white/10 transition-all">
+              <button className="px-6 py-3 rounded-full bg-white border border-neutral-200 text-neutral-700 font-semibold hover:bg-neutral-50 transition-all">
                 Message
               </button>
             </div>
@@ -237,17 +238,17 @@ export default function ProfilePage({ username }: ProfilePageProps) {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, index) => (
-              <div key={index} className="glass-effect rounded-2xl p-6 text-center">
+              <div key={index} className="bg-white rounded-2xl p-6 text-center border border-neutral-200 shadow-soft">
                 <div className="text-3xl mb-2">{stat.icon}</div>
                 <div className={`text-3xl font-bold ${
-                  stat.color === 'purple' ? 'gradient-text' :
-                  stat.color === 'green' ? 'text-green-400' :
-                  stat.color === 'blue' ? 'text-blue-400' :
-                  'text-yellow-400'
+                  stat.color === 'purple' ? 'text-primary-600' :
+                  stat.color === 'green' ? 'text-primary-500' :
+                  stat.color === 'blue' ? 'text-accent-500' :
+                  'text-accent-600'
                 }`}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-sm text-neutral-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -259,7 +260,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {user.website && (
-              <a href={user.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect hover:bg-white/10 transition-all text-sm">
+              <a href={user.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 hover:bg-neutral-50 transition-all text-sm text-neutral-700">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
@@ -267,7 +268,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
               </a>
             )}
             {user.github && (
-              <a href={`https://github.com/${user.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect hover:bg-white/10 transition-all text-sm">
+              <a href={`https://github.com/${user.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 hover:bg-neutral-50 transition-all text-sm text-neutral-700">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
                 </svg>
@@ -275,7 +276,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
               </a>
             )}
             {user.twitter && (
-              <a href={`https://twitter.com/${user.twitter}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect hover:bg-white/10 transition-all text-sm">
+              <a href={`https://twitter.com/${user.twitter}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 hover:bg-neutral-50 transition-all text-sm text-neutral-700">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                 </svg>
@@ -283,7 +284,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
               </a>
             )}
             {user.linkedin && (
-              <a href={`https://linkedin.com/in/${user.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect hover:bg-white/10 transition-all text-sm">
+              <a href={`https://linkedin.com/in/${user.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 hover:bg-neutral-50 transition-all text-sm text-neutral-700">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
@@ -295,28 +296,28 @@ export default function ProfilePage({ username }: ProfilePageProps) {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="py-16 bg-neutral-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Column - Badges */}
             <div className="lg:col-span-1 space-y-8">
-              <div className="glass-effect rounded-2xl p-6">
-                <h2 className="text-2xl font-bold text-white mb-6">Badges ({badges.length})</h2>
+              <div className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-soft">
+                <h2 className="text-2xl font-bold text-neutral-800 mb-6">Badges ({badges.length})</h2>
                 {badges.length > 0 ? (
                   <div className="grid grid-cols-3 gap-4">
                     {badges.slice(0, 9).map((badge, index) => (
                       <div key={index} className="group cursor-pointer">
-                        <div className="aspect-square rounded-xl p-4 flex items-center justify-center text-3xl transition-all bg-gradient-to-br from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30">
+                        <div className="aspect-square rounded-xl p-4 flex items-center justify-center text-3xl transition-all bg-gradient-to-br from-primary-100 to-primary-200 hover:from-primary-200 hover:to-primary-300">
                           🏆
                         </div>
-                        <p className="text-xs text-center mt-2 text-gray-400">{badge.badge.name}</p>
+                        <p className="text-xs text-center mt-2 text-neutral-600">{badge.badge.name}</p>
                       </div>
                     ))}
                   </div>
                 ) : (
                   <div className="text-center py-8">
                     <div className="text-4xl mb-4">🏆</div>
-                    <p className="text-gray-400">Aucun badge pour le moment</p>
+                    <p className="text-neutral-600">Aucun badge pour le moment</p>
                   </div>
                 )}
               </div>
@@ -325,7 +326,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
             {/* Right Column - Projects */}
             <div className="lg:col-span-2">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-white">Projets ({projects.length})</h2>
+                <h2 className="text-2xl font-bold text-neutral-800">Projets ({projects.length})</h2>
               </div>
               
               {projects.length > 0 ? (
@@ -337,8 +338,8 @@ export default function ProfilePage({ username }: ProfilePageProps) {
               ) : (
                 <div className="text-center py-12">
                   <div className="text-6xl mb-4">🚀</div>
-                  <h3 className="text-xl font-bold text-white mb-2">Aucun projet</h3>
-                  <p className="text-gray-400 mb-6">Cet utilisateur n'a pas encore publié de projets</p>
+                  <h3 className="text-xl font-bold text-neutral-800 mb-2">Aucun projet</h3>
+                  <p className="text-neutral-600 mb-6">Cet utilisateur n'a pas encore publié de projets</p>
                 </div>
               )}
             </div>
@@ -346,25 +347,6 @@ export default function ProfilePage({ username }: ProfilePageProps) {
         </div>
       </section>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-30px); }
-        }
-        
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-40px); }
-        }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
