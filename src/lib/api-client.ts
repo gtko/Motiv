@@ -49,12 +49,13 @@ export class ApiClient {
     }
   }
 
-  static async register(userData: {
-    email: string;
-    username: string;
-    password: string;
-    name?: string;
-  }): Promise<{ user: User; token: string } | null> {
+  static async register(
+    email: string,
+    username: string,
+    password: string,
+    name?: string
+  ): Promise<{ user: User; token: string } | null> {
+    const userData = { email, username, password, name };
     try {
       // Vérifier si l'email ou username existe déjà
       const existingUser = await db.select()
