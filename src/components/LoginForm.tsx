@@ -39,22 +39,16 @@ export default function LoginForm() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white">
-      {/* Simple pattern background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
-        
-        {/* Simple geometric shapes */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary-100 rounded-full opacity-20"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent-100 rounded-full opacity-20"></div>
-        
-        {/* Dot pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full" style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/illustrations/login-w1280.png" 
+          alt="Login background" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/50 via-neutral-800/40 to-neutral-700/30"></div>
       </div>
       
       {/* Main content - Full width creative design */}
@@ -62,49 +56,41 @@ export default function LoginForm() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Welcome content */}
           <div className="text-center lg:text-left">
-            <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-600 mb-6 shadow-soft">
-                <img src="/assets/logo-motiv.png" alt="Motiv" className="w-14 h-14" />
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-4 leading-tight">
-                Bon retour
+            <div className="mb-12">
+              <h1 className="text-5xl lg:text-6xl font-black text-white mb-12 leading-tight">
+                Reprenez votre
                 <br />
-                <span className="text-primary-600">créateur</span> !
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-accent-300">
+                  aventure spatiale
+                </span>
               </h1>
-              <p className="text-xl text-neutral-600 mb-8">
-                Reconnectez-vous à votre espace de création et continuez à transformer vos idées en réalité.
-              </p>
               
-              {/* Stats preview */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">2.5k</div>
-                  <div className="text-sm text-neutral-500">Projets</div>
+              {/* Platform features */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <h3 className="font-bold text-white mb-6 text-lg">✨ Bienvenue dans l'écosystème Motiv</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">🚀</span>
+                    <div>
+                      <p className="font-semibold text-white mb-1">Lancez vos projets</p>
+                      <p className="text-sm text-white/70">Créez et développez vos idées dans un environnement bienveillant</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">🏆</span>
+                    <div>
+                      <p className="font-semibold text-white mb-1">Gagnez des points</p>
+                      <p className="text-sm text-white/70">Chaque action compte dans votre progression galactique</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl mt-0.5">🌟</span>
+                    <div>
+                      <p className="font-semibold text-white mb-1">Rejoignez la communauté</p>
+                      <p className="text-sm text-white/70">Partagez, apprenez et grandissez avec d'autres créateurs</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-accent-500">890</div>
-                  <div className="text-sm text-neutral-500">Créateurs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-500">15M</div>
-                  <div className="text-sm text-neutral-500">Vues</div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Features preview */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                <span className="text-neutral-600">Tableau de bord personnalisé</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-accent-500 rounded-full"></div>
-                <span className="text-neutral-600">Analytics en temps réel</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                <span className="text-neutral-600">Communauté active</span>
               </div>
             </div>
           </div>

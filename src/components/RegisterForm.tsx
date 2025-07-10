@@ -67,22 +67,16 @@ export default function RegisterForm() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white">
-      {/* Simple pattern background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
-        
-        {/* Simple geometric shapes */}
-        <div className="absolute top-20 right-20 w-32 h-32 bg-primary-100 rounded-full opacity-20"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent-100 rounded-full opacity-20"></div>
-        
-        {/* Dot pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full" style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/illustrations/inscription-w1280.png" 
+          alt="Registration background" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/50 via-neutral-800/40 to-neutral-700/30"></div>
       </div>
       
       {/* Full-width creative layout */}
@@ -91,43 +85,55 @@ export default function RegisterForm() {
           {/* Left side - Welcome content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white border-2 border-primary-200 mb-6 shadow-soft">
-                <img src="/assets/logo-motiv.png" alt="Motiv" className="w-14 h-14" />
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-4 leading-tight">
-                Rejoignez la
+              <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                Rejoignez
                 <br />
-                <span className="text-primary-600">communauté</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-accent-300">
+                  l'aventure Motiv
+                </span>
               </h1>
-              <p className="text-xl text-neutral-600 mb-8">
-                Créez votre compte et commencez à partager vos projets avec d'autres entrepreneurs.
+              <p className="text-xl text-white/90 mb-12">
+                Embarquez dans la station spatiale des créateurs
+                <br className="hidden lg:block" />
+                et lancez vos projets vers les étoiles.
               </p>
               
               {/* Why join us */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <h3 className="font-bold text-white mb-6 text-lg">🚀 Votre mission commence ici</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/80">Créez et partagez vos projets innovants</span>
                   </div>
-                  <span className="text-neutral-600">Publiez vos projets en quelques clics</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-accent-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/80">Évoluez avec une communauté bienveillante</span>
                   </div>
-                  <span className="text-neutral-600">Rejoignez une communauté active</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/80">Grimpez dans le classement galactique</span>
                   </div>
-                  <span className="text-neutral-600">Suivez vos analytics en temps réel</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-accent-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/80">Déverrouillez des badges exclusifs</span>
+                  </div>
                 </div>
               </div>
             </div>
