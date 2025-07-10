@@ -43,7 +43,7 @@ export default function Navigation() {
         `}>
           {/* Logo simple */}
           <a href="/" className="flex items-center gap-3">
-            <img src="/assets/logo-motiv-w200.png" alt="Motiv" className="w-10 h-10 rounded-lg" />
+            <img src="/assets/logo-motiv-w200.png" alt="Motiv" className="w-12 h-12 rounded-lg" />
             <span className={`text-xl font-bold transition-colors ${isScrolled ? 'text-neutral-800' : 'text-white'}`}>Motiv</span>
           </a>
           
