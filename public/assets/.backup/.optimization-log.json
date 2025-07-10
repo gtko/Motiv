@@ -1,0 +1,147 @@
+{
+  "astronaute_et_cristal.png": {
+    "originalSize": 654667,
+    "optimizedSize": 624665,
+    "originalHash": "c9c142de3b399dae3fc3d81bfeaf50a5",
+    "currentHash": "53f52cca0b9cc01c52cf6b0662c3e251",
+    "lastOptimized": "2025-07-09T23:51:59.813Z",
+    "savingsPercent": 4.6
+  },
+  "balise_energie _fusees.png": {
+    "originalSize": 629384,
+    "optimizedSize": 530782,
+    "originalHash": "ecda45fa16a9ad85c7a8c35000689278",
+    "currentHash": "6052c28fb54d565b6206f853b8eb1f73",
+    "lastOptimized": "2025-07-09T23:51:59.991Z",
+    "savingsPercent": 15.7
+  },
+  "coffre_cosmique.png": {
+    "originalSize": 636350,
+    "optimizedSize": 569432,
+    "originalHash": "7d287be691cefead28d478db75b547f2",
+    "currentHash": "ed83aec36be0d5ea937ea8fc799ec45d",
+    "lastOptimized": "2025-07-09T23:52:00.533Z",
+    "savingsPercent": 10.5
+  },
+  "explorateurs_drapeau_vert_astéroïde.png": {
+    "originalSize": 706008,
+    "optimizedSize": 638327,
+    "originalHash": "3b0c8e2f5efb682215c719f55407609d",
+    "currentHash": "0887a1c5deb8bc1983c986e47621df18",
+    "lastOptimized": "2025-07-09T23:52:00.959Z",
+    "savingsPercent": 9.6
+  },
+  "logo-motiv.png": {
+    "originalSize": 75651,
+    "optimizedSize": 61306,
+    "originalHash": "1dd580cfea48fe5bacd559dcd24f50d5",
+    "currentHash": "051421f4257c4f39acfa3fde8186fee7",
+    "lastOptimized": "2025-07-09T23:52:01.163Z",
+    "savingsPercent": 19
+  },
+  "astronaute_et_cristal-w600.png": {
+    "originalSize": 624665,
+    "optimizedSize": 296965,
+    "originalHash": "53f52cca0b9cc01c52cf6b0662c3e251",
+    "currentHash": "b817d7249cc4efba7361ab560b6f4bf1",
+    "lastOptimized": "2025-07-09T23:56:19.204Z",
+    "savingsPercent": 52.5,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 600,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "balise_energie _fusees-w600.png": {
+    "originalSize": 530782,
+    "optimizedSize": 189360,
+    "originalHash": "6052c28fb54d565b6206f853b8eb1f73",
+    "currentHash": "cd24ba54a478ffbe27e71dccee0019cd",
+    "lastOptimized": "2025-07-09T23:56:19.309Z",
+    "savingsPercent": 64.3,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 600,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "coffre_cosmique-w600.png": {
+    "originalSize": 569432,
+    "optimizedSize": 280122,
+    "originalHash": "ed83aec36be0d5ea937ea8fc799ec45d",
+    "currentHash": "4b8dcc7208065ab4b296551bed8bd144",
+    "lastOptimized": "2025-07-09T23:56:19.459Z",
+    "savingsPercent": 50.8,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 600,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "explorateurs_drapeau_vert_astéroïde-w600.png": {
+    "originalSize": 638327,
+    "optimizedSize": 297991,
+    "originalHash": "0887a1c5deb8bc1983c986e47621df18",
+    "currentHash": "9e932b3b242cd413514acc8b3880dc8e",
+    "lastOptimized": "2025-07-09T23:56:19.663Z",
+    "savingsPercent": 53.3,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 600,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "logo-motiv-w200.png": {
+    "originalSize": 61306,
+    "optimizedSize": 5695,
+    "originalHash": "051421f4257c4f39acfa3fde8186fee7",
+    "currentHash": "7ce1b460c45738e409dfea0c52639f75",
+    "lastOptimized": "2025-07-09T23:56:19.706Z",
+    "savingsPercent": 90.7,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 200,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "logo-test-h100.png": {
+    "originalSize": 61306,
+    "optimizedSize": 2530,
+    "originalHash": "051421f4257c4f39acfa3fde8186fee7",
+    "currentHash": "73ab4c059a90443cfcd63890c0871b9d",
+    "lastOptimized": "2025-07-09T23:56:53.714Z",
+    "savingsPercent": 95.9,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": null,
+      "height": 100,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "logo-test-w150-h150-fill.png": {
+    "originalSize": 61306,
+    "optimizedSize": 4101,
+    "originalHash": "051421f4257c4f39acfa3fde8186fee7",
+    "currentHash": "8351fc3adf0e39f496b7e51cddb635aa",
+    "lastOptimized": "2025-07-09T23:56:53.745Z",
+    "savingsPercent": 93.3,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 150,
+      "height": 150,
+      "fit": "cover",
+      "hasInstructions": true
+    }
+  }
+}
