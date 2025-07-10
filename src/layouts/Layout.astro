@@ -36,10 +36,12 @@ const { title } = Astro.props;
     <!-- Navigation ultra-moderne avec glassmorphism -->
     <Navigation client:load />
     
-    <!-- Contenu principal sans padding (nav en superposition) -->
-    <main class="min-h-screen">
-      <slot />
-    </main>
+    <!-- Wrapper pour l'effet de décalage -->
+    <div id="site-wrapper" class="transition-transform duration-300 ease-out">
+      <!-- Contenu principal sans padding (nav en superposition) -->
+      <main class="min-h-screen">
+        <slot />
+      </main>
     
     <!-- Footer minimaliste -->
     <footer class="relative mt-24 border-t border-neutral-200 bg-neutral-50">
@@ -129,6 +131,7 @@ const { title } = Astro.props;
         </div>
       </div>
     </footer>
+    </div>
     
     <!-- Scripts pour les interactions simples -->
     <script>

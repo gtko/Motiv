@@ -211,3 +211,17 @@
 .transition-smooth {
   transition: all 0.3s ease-out;
 }
+
+/* Animation shimmer pour les barres de progression */
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
