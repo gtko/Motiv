@@ -165,7 +165,7 @@ export default function ProfilePage({ username }: ProfilePageProps) {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
           
-          <!-- Simple geometric shapes -->
+          {/* Simple geometric shapes */}
           <div className="absolute top-1/4 left-1/4 w-56 h-56 bg-primary-100 rounded-full opacity-20"></div>
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent-100 rounded-full opacity-20"></div>
         </div>
