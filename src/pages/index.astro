@@ -95,25 +95,25 @@ const leaderboardEntries = [
 
 <Layout title="Accueil">
   <!-- Hero Section - Surfez sur vos idées -->
-  <section class="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-white via-neutral-50 to-primary-50/30 py-20 overflow-hidden">
+  <section class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
     
-    <!-- Astronaute surfeur hero -->
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="relative w-full max-w-7xl mx-auto px-8">
-        <img 
-          src="/assets/illustrations/astronaute_surf.png" 
-          alt="Astronaute surfant sur l'innovation" 
-          class="absolute right-8 md:right-16 lg:right-24 top-1/2 transform -translate-y-1/2 w-80 md:w-96 lg:w-[480px] opacity-30 md:opacity-40 lg:opacity-50 z-0"
-          loading="eager"
-        />
-      </div>
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/assets/illustrations/decouverte_innovation-w1280.png" 
+        alt="Découverte et innovation background" 
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <!-- Darker overlay for better contrast -->
+      <div class="absolute inset-0 bg-gradient-to-br from-neutral-900/20 via-neutral-800/30 to-neutral-700/20"></div>
     </div>
     
     <div class="relative z-10 max-w-7xl mx-auto px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         
         <!-- Contenu principal -->
-        <div class="text-center lg:text-left">
+        <div class="text-center lg:text-left bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl">
           <!-- Logo spatial -->
           <div class="mb-8 flex justify-center lg:justify-start">
             <div class="relative">
@@ -123,16 +123,16 @@ const leaderboardEntries = [
           </div>
           
           <!-- Titre cosmique -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight text-neutral-800">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white">
             Surfez sur la vague de
-            <span class="text-primary-600 relative">
+            <span class="text-primary-300 relative">
               l'innovation
               <div class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
             </span>
           </h1>
           
           <!-- Mission statement -->
-          <p class="text-xl md:text-2xl text-neutral-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
             Maîtrisez votre entrepreneuriat comme un surfeur cosmique dans une communauté qui vous propulse vers les étoiles
           </p>
           
@@ -143,7 +143,7 @@ const leaderboardEntries = [
               <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
             </a>
             
-            <a href="/projects" class="px-8 py-4 bg-white border-2 border-neutral-200 hover:border-primary-300 text-neutral-700 hover:text-primary-600 font-semibold rounded-full transition-all duration-300 hover:shadow-soft">
+            <a href="/projects" class="px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white hover:text-white font-semibold rounded-full transition-all duration-300 hover:shadow-soft hover:bg-white/30">
               🌌 Explorer les missions
             </a>
           </div>
@@ -151,18 +151,18 @@ const leaderboardEntries = [
           <!-- Stats de l'expédition -->
           <div class="flex flex-wrap justify-center lg:justify-start gap-8 text-center lg:text-left">
             <div class="relative">
-              <div class="text-3xl font-black text-primary-600">{stats.activeUsers}</div>
-              <div class="text-sm text-neutral-600">Explorateurs actifs</div>
+              <div class="text-3xl font-black text-primary-300">{stats.activeUsers}</div>
+              <div class="text-sm text-white/80">Explorateurs actifs</div>
               <div class="absolute -top-1 -right-2 text-xs">🚀</div>
             </div>
             <div class="relative">
-              <div class="text-3xl font-black text-accent-500">{stats.totalProjects}</div>
-              <div class="text-sm text-neutral-600">Missions lancées</div>
+              <div class="text-3xl font-black text-accent-300">{stats.totalProjects}</div>
+              <div class="text-sm text-white/80">Missions lancées</div>
               <div class="absolute -top-1 -right-2 text-xs">⭐</div>
             </div>
             <div class="relative">
-              <div class="text-3xl font-black text-primary-500">∞</div>
-              <div class="text-sm text-neutral-600">Possibilités</div>
+              <div class="text-3xl font-black text-primary-300">∞</div>
+              <div class="text-sm text-white/80">Possibilités</div>
               <div class="absolute -top-1 -right-2 text-xs">💫</div>
             </div>
           </div>
