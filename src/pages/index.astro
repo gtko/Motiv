@@ -202,134 +202,167 @@ const leaderboardEntries = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         <!-- Étape 1: Découverte -->
-        <div class="group relative">
-          <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-primary-200">
-            <div class="absolute -top-4 left-6 bg-primary-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+        <div class="group relative h-full">
+          <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2">
+            <!-- Badge de phase -->
+            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-primary-600 text-sm font-bold px-3 py-1 rounded-full border border-primary-200">
               Phase 1
             </div>
             
-            <div class="w-24 h-24 mx-auto mb-6 relative">
+            <!-- Image de fond -->
+            <div class="absolute inset-0">
               <img 
                 src="/assets/illustrations/astronaute_et_cristal-w600.png" 
                 alt="Découverte du potentiel" 
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-primary-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <!-- Overlay gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-primary-900/95 via-primary-900/70 to-primary-900/30"></div>
             </div>
             
-            <h3 class="text-xl font-bold text-neutral-800 mb-3 text-center">
-              Découvrez votre potentiel
-            </h3>
-            <p class="text-neutral-600 text-center text-sm leading-relaxed">
-              Comme un explorateur spatial qui trouve des cristaux précieux, découvrez la valeur unique de vos idées
-            </p>
-            
-            <div class="mt-6 text-center">
-              <span class="inline-flex items-center text-xs text-primary-600 font-medium">
-                💎 Eureka moment
-              </span>
+            <!-- Contenu -->
+            <div class="relative h-full flex flex-col justify-end p-6 z-10">
+              <div class="space-y-3">
+                <h3 class="text-2xl font-bold text-white">
+                  Découvrez votre potentiel
+                </h3>
+                <p class="text-primary-100 text-sm leading-relaxed">
+                  Comme un explorateur spatial qui trouve des cristaux précieux, découvrez la valeur unique de vos idées
+                </p>
+                
+                <div class="pt-2">
+                  <span class="inline-flex items-center gap-2 text-xs text-primary-200 font-medium bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    <span class="text-base">💎</span>
+                    Eureka moment
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Étape 2: Construction -->
-        <div class="group relative">
-          <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-primary-200">
-            <div class="absolute -top-4 left-6 bg-accent-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+        <div class="group relative h-full">
+          <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2">
+            <!-- Badge de phase -->
+            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-accent-600 text-sm font-bold px-3 py-1 rounded-full border border-accent-200">
               Phase 2
             </div>
             
-            <div class="w-24 h-24 mx-auto mb-6 relative">
+            <!-- Image de fond -->
+            <div class="absolute inset-0">
               <img 
                 src="/assets/illustrations/balise_energie_fusees-w600.png" 
                 alt="Construction de votre fusée" 
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-accent-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <!-- Overlay gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-accent-900/95 via-accent-900/70 to-accent-900/30"></div>
             </div>
             
-            <h3 class="text-xl font-bold text-neutral-800 mb-3 text-center">
-              Construisez votre fusée
-            </h3>
-            <p class="text-neutral-600 text-center text-sm leading-relaxed">
-              Érigez votre infrastructure comme une station spatiale. Chaque ligne de code vous rapproche des étoiles
-            </p>
-            
-            <div class="mt-6 text-center">
-              <span class="inline-flex items-center text-xs text-accent-600 font-medium">
-                🏗️ Construction active
-              </span>
+            <!-- Contenu -->
+            <div class="relative h-full flex flex-col justify-end p-6 z-10">
+              <div class="space-y-3">
+                <h3 class="text-2xl font-bold text-white">
+                  Construisez votre fusée
+                </h3>
+                <p class="text-accent-100 text-sm leading-relaxed">
+                  Érigez votre infrastructure comme une station spatiale. Chaque ligne de code vous rapproche des étoiles
+                </p>
+                
+                <div class="pt-2">
+                  <span class="inline-flex items-center gap-2 text-xs text-accent-200 font-medium bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    <span class="text-base">🏗️</span>
+                    Construction active
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Étape 3: Décollage -->
-        <div class="group relative">
-          <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-primary-200">
-            <div class="absolute -top-4 left-6 bg-primary-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+        <div class="group relative h-full">
+          <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2">
+            <!-- Badge de phase -->
+            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-primary-700 text-sm font-bold px-3 py-1 rounded-full border border-primary-300">
               Phase 3
             </div>
             
-            <div class="w-24 h-24 mx-auto mb-6 relative">
+            <!-- Image de fond -->
+            <div class="absolute inset-0">
               <img 
                 src="/assets/illustrations/deux_micro-fusees.png" 
                 alt="Prise de vitesse" 
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-primary-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <!-- Overlay gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-primary-900/95 via-primary-900/70 to-primary-900/30"></div>
             </div>
             
-            <h3 class="text-xl font-bold text-neutral-800 mb-3 text-center">
-              Prenez de la vitesse
-            </h3>
-            <p class="text-neutral-600 text-center text-sm leading-relaxed">
-              Lancez-vous dans l'espace du marché. L'accélération commence maintenant, objectif : décollage réussi !
-            </p>
-            
-            <div class="mt-6 text-center">
-              <span class="inline-flex items-center text-xs text-primary-600 font-medium">
-                <span class="flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                  Momentum maximum
-                </span>
-              </span>
+            <!-- Contenu -->
+            <div class="relative h-full flex flex-col justify-end p-6 z-10">
+              <div class="space-y-3">
+                <h3 class="text-2xl font-bold text-white">
+                  Prenez de la vitesse
+                </h3>
+                <p class="text-primary-100 text-sm leading-relaxed">
+                  Lancez-vous dans l'espace du marché. L'accélération commence maintenant, objectif : décollage réussi !
+                </p>
+                
+                <div class="pt-2">
+                  <span class="inline-flex items-center gap-2 text-xs text-primary-200 font-medium bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Momentum maximum
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Étape 4: Récompenses -->
-        <div class="group relative">
-          <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-accent-200">
-            <div class="absolute -top-4 left-6 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-bold px-3 py-1 rounded-full">
-              Phase 4
+        <div class="group relative h-full">
+          <div class="relative h-full min-h-[400px] rounded-2xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-500 transform hover:-translate-y-2">
+            <!-- Badge de phase -->
+            <div class="absolute top-4 left-4 z-20 bg-gradient-to-r from-primary-100 to-accent-100 text-transparent bg-clip-text text-sm font-bold px-3 py-1 rounded-full border border-primary-200/50 bg-white/90 backdrop-blur-sm">
+              <span class="bg-gradient-to-r from-primary-600 to-accent-600 text-transparent bg-clip-text">Phase 4</span>
             </div>
             
-            <div class="w-24 h-24 mx-auto mb-6 relative">
+            <!-- Image de fond -->
+            <div class="absolute inset-0">
               <img 
                 src="/assets/illustrations/coffre_cosmique-w600.png" 
                 alt="Récolte des fruits" 
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+              <!-- Overlay gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/70 to-neutral-900/30"></div>
             </div>
             
-            <h3 class="text-xl font-bold text-neutral-800 mb-3 text-center">
-              Récoltez les fruits
-            </h3>
-            <p class="text-neutral-600 text-center text-sm leading-relaxed">
-              Votre trésor cosmique vous attend : succès, reconnaissance, impact. L'aventure ne fait que commencer
-            </p>
-            
-            <div class="mt-6 text-center">
-              <span class="inline-flex items-center text-xs text-accent-600 font-medium">
-                💰 Trésor débloqué
-              </span>
+            <!-- Contenu -->
+            <div class="relative h-full flex flex-col justify-end p-6 z-10">
+              <div class="space-y-3">
+                <h3 class="text-2xl font-bold text-white">
+                  Récoltez les fruits
+                </h3>
+                <p class="text-neutral-100 text-sm leading-relaxed">
+                  Votre trésor cosmique vous attend : succès, reconnaissance, impact. L'aventure ne fait que commencer
+                </p>
+                
+                <div class="pt-2">
+                  <span class="inline-flex items-center gap-2 text-xs text-yellow-200 font-medium bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    <span class="text-base">💰</span>
+                    Trésor débloqué
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
