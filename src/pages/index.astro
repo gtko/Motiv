@@ -141,21 +141,27 @@ const leaderboardEntries = [
           </div>
           
           <!-- Stats de l'expédition -->
-          <div class="flex flex-wrap justify-center lg:justify-start gap-8 text-center lg:text-left">
-            <div class="relative">
-              <div class="text-3xl font-black text-primary-300">{stats.activeUsers}</div>
-              <div class="text-sm text-white/80">Explorateurs actifs</div>
-              <div class="absolute -top-1 -right-2 text-xs">🚀</div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center">
+              <div class="text-4xl font-black text-primary-300 relative inline-block">
+                {stats.activeUsers}
+                <div class="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
+              </div>
+              <div class="text-sm text-white/80 mt-1">Explorateurs actifs</div>
             </div>
-            <div class="relative">
-              <div class="text-3xl font-black text-accent-300">{stats.totalProjects}</div>
-              <div class="text-sm text-white/80">Missions lancées</div>
-              <div class="absolute -top-1 -right-2 text-xs">⭐</div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center">
+              <div class="text-4xl font-black text-accent-300 relative inline-block">
+                {stats.totalProjects}
+                <div class="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-accent-400 to-primary-400 rounded-full"></div>
+              </div>
+              <div class="text-sm text-white/80 mt-1">Missions lancées</div>
             </div>
-            <div class="relative">
-              <div class="text-3xl font-black text-primary-300">∞</div>
-              <div class="text-sm text-white/80">Possibilités</div>
-              <div class="absolute -top-1 -right-2 text-xs">💫</div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30 text-center">
+              <div class="text-4xl font-black text-primary-300 relative inline-block">
+                ∞
+                <div class="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
+              </div>
+              <div class="text-sm text-white/80 mt-1">Possibilités</div>
             </div>
           </div>
           
