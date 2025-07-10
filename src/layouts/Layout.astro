@@ -36,8 +36,8 @@ const { title } = Astro.props;
     <!-- Navigation ultra-moderne avec glassmorphism -->
     <Navigation client:load />
     
-    <!-- Contenu principal avec padding pour la nav fixe -->
-    <main class="pt-24 min-h-screen">
+    <!-- Contenu principal sans padding (nav en superposition) -->
+    <main class="min-h-screen">
       <slot />
     </main>
     

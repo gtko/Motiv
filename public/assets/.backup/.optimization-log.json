@@ -143,5 +143,90 @@
       "fit": "cover",
       "hasInstructions": true
     }
+  },
+  "astronaute_surf.png": {
+    "originalSize": 1951306,
+    "optimizedSize": 744330,
+    "originalHash": "ff0479f5a1594639ca96269752a3919b",
+    "currentHash": "39b793e824ea0bfacc0c9546e695ec36",
+    "lastOptimized": "2025-07-10T18:24:28.002Z",
+    "savingsPercent": 61.9,
+    "wasResized": false,
+    "resizeInstructions": null
+  },
+  "carte_stellaire_holographique.png": {
+    "originalSize": 1529095,
+    "optimizedSize": 395571,
+    "originalHash": "8fc60ea49541be769e80cb10557fdb98",
+    "currentHash": "8b34aef30b5831ed0c93262796034400",
+    "lastOptimized": "2025-07-10T18:24:28.559Z",
+    "savingsPercent": 74.1,
+    "wasResized": false,
+    "resizeInstructions": null
+  },
+  "centre_control-w1280.png": {
+    "originalSize": 7571302,
+    "optimizedSize": 328139,
+    "originalHash": "f2508ca0148a5592b530c387d26929a6",
+    "currentHash": "ef6c625a5d488c9aa56d68ee8694282f",
+    "lastOptimized": "2025-07-10T18:24:29.234Z",
+    "savingsPercent": 95.7,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "classement-w1280.png": {
+    "originalSize": 7675641,
+    "optimizedSize": 551491,
+    "originalHash": "6600f49412b36a9e316124fe1ba86675",
+    "currentHash": "0cecca684a16372cbf72c1e17b257c78",
+    "lastOptimized": "2025-07-10T18:24:29.781Z",
+    "savingsPercent": 92.8,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "deux_micro-fusees.png": {
+    "originalSize": 2587867,
+    "optimizedSize": 853213,
+    "originalHash": "ad7713549ac20a4d1df6ec13e6d6edba",
+    "currentHash": "6eca08d75b96449269aa54baa0ae9c85",
+    "lastOptimized": "2025-07-10T18:24:30.205Z",
+    "savingsPercent": 67,
+    "wasResized": false,
+    "resizeInstructions": null
+  },
+  "trophee_etoile_emeraude.png": {
+    "originalSize": 2564370,
+    "optimizedSize": 900397,
+    "originalHash": "8ffdda299c215c3ea676857e284243f4",
+    "currentHash": "ca18397381818102f44b4ff3c233e128",
+    "lastOptimized": "2025-07-10T18:24:30.603Z",
+    "savingsPercent": 64.9,
+    "wasResized": false,
+    "resizeInstructions": null
+  },
+  "decouverte_innovation-w1280.png": {
+    "originalSize": 6320642,
+    "optimizedSize": 283874,
+    "originalHash": "4e7762fb31d510d8fa9262590978d6e5",
+    "currentHash": "611783d7c1764e49e5691e48efa539ec",
+    "lastOptimized": "2025-07-10T18:52:14.718Z",
+    "savingsPercent": 95.5,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
   }
 }

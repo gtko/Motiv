@@ -38,29 +38,29 @@ export default function Navigation() {
           relative rounded-xl px-6 py-3 flex items-center justify-between transition-all duration-300
           ${isScrolled 
             ? 'bg-white/50 backdrop-blur-lg border border-neutral-200/50 shadow-soft' 
-            : 'bg-white/90 backdrop-blur-sm border border-neutral-200'
+            : 'bg-transparent'
           }
         `}>
           {/* Logo simple */}
           <a href="/" className="flex items-center gap-3">
             <img src="/assets/logo-motiv-w200.png" alt="Motiv" className="w-10 h-10 rounded-lg" />
-            <span className="text-xl font-bold text-neutral-800">Motiv</span>
+            <span className={`text-xl font-bold transition-colors ${isScrolled ? 'text-neutral-800' : 'text-white'}`}>Motiv</span>
           </a>
           
           {/* Menu central */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="/" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Accueil</a>
-            <a href="/projects" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Projets</a>
-            <a href="/leaderboard" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Classement</a>
-            <a href="/about" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">À propos</a>
+            <a href="/" className={`text-sm font-medium transition-colors ${isScrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/90 hover:text-white'}`}>Accueil</a>
+            <a href="/projects" className={`text-sm font-medium transition-colors ${isScrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/90 hover:text-white'}`}>Projets</a>
+            <a href="/leaderboard" className={`text-sm font-medium transition-colors ${isScrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/90 hover:text-white'}`}>Classement</a>
+            <a href="/about" className={`text-sm font-medium transition-colors ${isScrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/90 hover:text-white'}`}>À propos</a>
           </div>
           
           {/* Actions utilisateur */}
           <div className="flex items-center gap-4">
             {authState.isAuthenticated && authState.user ? (
               <>
-                <button className="relative p-2 rounded-lg hover:bg-neutral-100 transition-all">
-                  <svg className="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button className={`relative p-2 rounded-lg transition-all ${isScrolled ? 'hover:bg-neutral-100' : 'hover:bg-white/10'}`}>
+                  <svg className={`w-5 h-5 transition-colors ${isScrolled ? 'text-neutral-700' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                   <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-accent-500 rounded-full"></span>
@@ -114,7 +114,7 @@ export default function Navigation() {
               </>
             ) : (
               <>
-                <a href="/login" className="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">
+                <a href="/login" className={`text-sm font-medium transition-colors ${isScrolled ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/90 hover:text-white'}`}>
                   Connexion
                 </a>
                 <a href="/register" className="btn-primary text-sm">
