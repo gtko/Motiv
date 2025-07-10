@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="À propos">
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center justify-center bg-white">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-neutral-50 via-white to-primary-50/30"></div>
+      
+      <!-- Simple geometric shapes -->
+      <div class="absolute top-1/4 left-1/4 w-48 h-48 bg-primary-100 rounded-full opacity-20"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-56 h-56 bg-accent-100 rounded-full opacity-20"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-neutral-800">
+        La philosophie Motiv
+      </h1>
+      <p class="text-xl md:text-2xl text-neutral-600">
+        Transformer l'entrepreneuriat solo en aventure collective
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Introduction -->
+      <div class="prose prose-lg max-w-none text-neutral-700">
+        <p class="text-xl leading-relaxed mb-8">
+          Motiv est né en 2025 d'une idée simple : <strong>rendre fun la création de petits business en ligne</strong>. 
+          Je suis un développeur passionné qui croit que l'entrepreneuriat ne devrait pas être une aventure solitaire et stressante, 
+          mais plutôt une expérience enrichissante où l'on peut s'entraîner, progresser et s'amuser.
+        </p>
+      </div>
+
+      <!-- Les 3 Piliers -->
+      <div class="mt-16">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-8 text-center">Les 3 piliers de Motiv</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-primary-100 rounded-full flex items-center justify-center">
+              <span class="text-3xl">🎯</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-800 mb-3">S'entraîner</h3>
+            <p class="text-neutral-600">
+              Créez vos projets dans un environnement bienveillant où l'échec est une étape d'apprentissage, pas une fin.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-accent-100 rounded-full flex items-center justify-center">
+              <span class="text-3xl">🤝</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-800 mb-3">Partager</h3>
+            <p class="text-neutral-600">
+              Échangez avec d'autres entrepreneurs, partagez vos succès comme vos difficultés, et apprenez ensemble.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-primary-100 rounded-full flex items-center justify-center">
+              <span class="text-3xl">🚀</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-800 mb-3">Se motiver</h3>
+            <p class="text-neutral-600">
+              Comparez-vous sainement aux autres pour vous pousser à être meilleur, sans toxicité ni pression malsaine.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notre Vision -->
+      <div class="mt-20 bg-neutral-50 rounded-2xl p-8 md:p-12">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-6">Notre vision</h2>
+        <div class="space-y-4 text-neutral-700">
+          <p>
+            Nous croyons que <strong>chaque idée mérite d'être explorée</strong>. Que vous vouliez créer un SaaS, 
+            un outil, un jeu ou tout autre projet numérique, Motiv est là pour vous accompagner.
+          </p>
+          <p>
+            Le système de points n'est pas là pour créer de la compétition malsaine, mais pour 
+            <strong>gamifier l'expérience entrepreneuriale</strong>. Chaque action compte : publier un projet, 
+            recevoir des étoiles sur GitHub, attirer des visiteurs... Tout est valorisé.
+          </p>
+          <p>
+            Notre communauté est composée d'<strong>entrepreneurs dans leur chambre</strong>, de développeurs 
+            passionnés qui créent par plaisir autant que par ambition. Nous célébrons autant les petites 
+            victoires que les grands succès.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pourquoi Motiv -->
+      <div class="mt-20">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-8 text-center">Pourquoi Motiv ?</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-neutral-200 shadow-soft">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-800 mb-2">Pas de pression</h3>
+                <p class="text-neutral-600 text-sm">
+                  Travaillez à votre rythme, sans deadline imposée. L'important est de progresser, pas de courir.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 border border-neutral-200 shadow-soft">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-800 mb-2">100% gratuit</h3>
+                <p class="text-neutral-600 text-sm">
+                  Aucun abonnement, aucune fonctionnalité cachée. Motiv est et restera gratuit pour tous.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 border border-neutral-200 shadow-soft">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-800 mb-2">Communauté bienveillante</h3>
+                <p class="text-neutral-600 text-sm">
+                  Entraide, feedback constructif et célébration collective des réussites de chacun.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 border border-neutral-200 shadow-soft">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-800 mb-2">Transparence totale</h3>
+                <p class="text-neutral-600 text-sm">
+                  Partagez autant ou aussi peu que vous voulez. Vos échecs sont aussi précieux que vos succès.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-20 text-center">
+        <h2 class="text-3xl font-bold text-neutral-800 mb-4">
+          Prêt à rejoindre l'aventure ?
+        </h2>
+        <p class="text-xl text-neutral-600 mb-8">
+          Commencez dès aujourd'hui à partager vos projets et à vous motiver avec notre communauté.
+        </p>
+        <a href="/register" class="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-full shadow-soft-lg hover:shadow-soft-xl transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Commencer gratuitement
+        </a>
+      </div>
+
+      <!-- Quote -->
+      <div class="mt-20 bg-primary-50 rounded-2xl p-8 text-center">
+        <blockquote class="text-xl italic text-neutral-700">
+          "L'entrepreneuriat ne devrait pas être une course solitaire, mais une aventure collective 
+          où chacun peut apprendre, progresser et s'épanouir à son rythme."
+        </blockquote>
+        <p class="mt-4 text-neutral-600">
+          — Le créateur de Motiv
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fun Facts -->
+  <section class="py-20 bg-neutral-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-neutral-800 mb-8 text-center">Fun facts</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div>
+          <div class="text-4xl mb-2">☕</div>
+          <div class="text-2xl font-bold text-primary-600">∞</div>
+          <div class="text-sm text-neutral-600">Tasses de café consommées</div>
+        </div>
+        
+        <div>
+          <div class="text-4xl mb-2">💡</div>
+          <div class="text-2xl font-bold text-primary-600">1</div>
+          <div class="text-sm text-neutral-600">Idée géniale (Motiv !)</div>
+        </div>
+        
+        <div>
+          <div class="text-4xl mb-2">🎯</div>
+          <div class="text-2xl font-bold text-primary-600">100%</div>
+          <div class="text-sm text-neutral-600">De passion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

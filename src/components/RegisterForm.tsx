@@ -91,7 +91,7 @@ export default function RegisterForm() {
           {/* Left side - Welcome content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-primary-500 to-primary-600 mb-6 shadow-soft">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white border-2 border-primary-200 mb-6 shadow-soft">
                 <img src="/assets/logo-motiv.png" alt="Motiv" className="w-14 h-14" />
               </div>
               <h1 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-4 leading-tight">
