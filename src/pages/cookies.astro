@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Politique des cookies">
+  <section class="pt-32 pb-20 bg-gradient-to-br from-neutral-50 to-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-black text-neutral-800 mb-8">
+        Politique des cookies
+      </h1>
+      
+      <div class="prose prose-lg max-w-none text-neutral-700">
+        <p class="text-xl text-neutral-600 mb-8">
+          Dernière mise à jour : Janvier 2025
+        </p>
+
+        <div class="bg-white rounded-2xl p-8 shadow-soft mb-8">
+          <p class="text-lg">
+            Cette politique explique comment Motiv utilise les cookies et technologies similaires pour améliorer votre expérience.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">1. Qu'est-ce qu'un cookie ?</h2>
+        <p>Un cookie est un petit fichier texte stocké sur votre appareil qui nous permet de :</p>
+        <ul>
+          <li>Vous reconnaître lors de vos visites</li>
+          <li>Mémoriser vos préférences</li>
+          <li>Comprendre comment vous utilisez Motiv</li>
+          <li>Améliorer votre expérience utilisateur</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">2. Types de cookies utilisés</h2>
+        
+        <h3 class="text-xl font-semibold text-neutral-700 mt-8 mb-3">2.1 Cookies essentiels</h3>
+        <div class="bg-primary-50 rounded-xl p-6 mb-4">
+          <p class="font-medium text-primary-800 mb-2">Strictement nécessaires au fonctionnement</p>
+          <ul class="text-sm">
+            <li><strong>auth_token</strong> : Maintient votre session de connexion</li>
+            <li><strong>csrf_token</strong> : Protège contre les attaques CSRF</li>
+            <li><strong>cookie_consent</strong> : Mémorise votre choix de cookies</li>
+          </ul>
+        </div>
+
+        <h3 class="text-xl font-semibold text-neutral-700 mt-8 mb-3">2.2 Cookies de préférences</h3>
+        <div class="bg-accent-50 rounded-xl p-6 mb-4">
+          <p class="font-medium text-accent-800 mb-2">Améliorent votre expérience</p>
+          <ul class="text-sm">
+            <li><strong>theme</strong> : Mémorise votre thème (clair/sombre)</li>
+            <li><strong>language</strong> : Votre langue préférée</li>
+            <li><strong>notification_prefs</strong> : Vos préférences de notifications</li>
+          </ul>
+        </div>
+
+        <h3 class="text-xl font-semibold text-neutral-700 mt-8 mb-3">2.3 Cookies analytiques</h3>
+        <div class="bg-neutral-100 rounded-xl p-6 mb-4">
+          <p class="font-medium text-neutral-800 mb-2">Nous aident à comprendre l'utilisation</p>
+          <ul class="text-sm">
+            <li><strong>_ga</strong> : Google Analytics (anonymisé)</li>
+            <li><strong>page_views</strong> : Pages visitées</li>
+            <li><strong>session_duration</strong> : Durée de visite</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">3. Durée de conservation</h2>
+        <table class="w-full mt-4">
+          <thead>
+            <tr class="border-b border-neutral-200">
+              <th class="text-left py-2">Type de cookie</th>
+              <th class="text-left py-2">Durée</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-neutral-100">
+              <td class="py-3">Session</td>
+              <td class="py-3">Jusqu'à fermeture du navigateur</td>
+            </tr>
+            <tr class="border-b border-neutral-100">
+              <td class="py-3">Authentification</td>
+              <td class="py-3">30 jours (renouvellement automatique)</td>
+            </tr>
+            <tr class="border-b border-neutral-100">
+              <td class="py-3">Préférences</td>
+              <td class="py-3">1 an</td>
+            </tr>
+            <tr class="border-b border-neutral-100">
+              <td class="py-3">Analytiques</td>
+              <td class="py-3">2 ans</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">4. Gestion des cookies</h2>
+        
+        <h3 class="text-xl font-semibold text-neutral-700 mt-8 mb-3">4.1 Vos choix</h3>
+        <p>Vous pouvez à tout moment :</p>
+        <ul>
+          <li>Accepter ou refuser les cookies non essentiels</li>
+          <li>Modifier vos préférences dans les paramètres du compte</li>
+          <li>Supprimer les cookies via votre navigateur</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-neutral-700 mt-8 mb-3">4.2 Paramètres du navigateur</h3>
+        <p>Vous pouvez configurer votre navigateur pour :</p>
+        <ul>
+          <li>Bloquer tous les cookies</li>
+          <li>Être alerté avant l'installation d'un cookie</li>
+          <li>Supprimer les cookies existants</li>
+        </ul>
+
+        <div class="bg-yellow-50 rounded-xl p-6 mt-4 border border-yellow-200">
+          <p class="text-sm text-yellow-800">
+            <strong>Attention :</strong> Bloquer les cookies essentiels peut empêcher le bon fonctionnement de Motiv (connexion impossible, perte de préférences, etc.).
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">5. Cookies tiers</h2>
+        <p>Nous utilisons des services tiers qui peuvent déposer leurs propres cookies :</p>
+        <ul>
+          <li><strong>Google Analytics</strong> : Analyse d'audience (IP anonymisée)</li>
+          <li><strong>GitHub API</strong> : Intégration des statistiques de projets</li>
+          <li><strong>Cloudflare</strong> : Sécurité et performance</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">6. Sécurité des cookies</h2>
+        <p>Nous protégeons vos données avec :</p>
+        <ul>
+          <li>Chiffrement HTTPS pour tous les cookies</li>
+          <li>Attributs <code>Secure</code> et <code>HttpOnly</code></li>
+          <li>Protection <code>SameSite</code> contre les attaques</li>
+          <li>Rotation régulière des tokens de session</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">7. Modifications de cette politique</h2>
+        <p>Nous pouvons mettre à jour cette politique. Les changements importants seront notifiés par :</p>
+        <ul>
+          <li>Bannière sur le site</li>
+          <li>Email si nécessaire</li>
+          <li>Demande de renouvellement du consentement</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-neutral-800 mt-12 mb-4">8. Contact et questions</h2>
+        <p>Pour toute question sur notre utilisation des cookies :</p>
+        <div class="bg-neutral-50 rounded-xl p-6 mt-4">
+          <p class="font-medium">Email : cookies@motiv.app</p>
+          <p class="text-sm text-neutral-600 mt-2">Notre équipe répondra dans les 48h ouvrées.</p>
+        </div>
+
+        <div class="mt-12 p-6 bg-primary-50 rounded-xl border border-primary-200">
+          <p class="text-sm text-primary-700">
+            Nous nous engageons à utiliser les cookies de manière responsable et transparente, uniquement pour améliorer votre expérience sur Motiv.
+          </p>
+        </div>
+
+        <!-- Bouton de gestion des cookies -->
+        <div class="mt-8 text-center">
+          <button class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition-colors duration-300">
+            Gérer mes préférences de cookies
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
