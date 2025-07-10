@@ -124,30 +124,26 @@ const achievements = [
 
 <Layout title="Classement">
   <!-- Hero Section - Hall of Fame Élégant -->
-  <section class="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-700 overflow-hidden">
+  <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+    
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/assets/illustrations/classement-w1280.png" 
+        alt="Classement background" 
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <!-- Dark overlay for better text contrast -->
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/70 via-neutral-800/60 to-neutral-700/50"></div>
+    </div>
     
     <!-- Étoiles subtiles -->
-    <div class="absolute inset-0 opacity-60">
+    <div class="absolute inset-0 opacity-60 z-10">
       <div class="absolute top-16 left-16 w-1 h-1 bg-white rounded-full opacity-80"></div>
       <div class="absolute top-28 right-24 w-1 h-1 bg-primary-300 rounded-full opacity-60"></div>
       <div class="absolute bottom-24 left-32 w-1 h-1 bg-accent-400 rounded-full opacity-70"></div>
       <div class="absolute bottom-16 right-20 w-1 h-1 bg-white rounded-full opacity-50"></div>
-    </div>
-    
-    <!-- Trophée avec masque SVG -->
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="relative w-80 md:w-96 lg:w-[400px] h-80 md:h-96 lg:h-[400px]">
-        <img 
-          src="/assets/illustrations/trophee_etoile_emeraude.png" 
-          alt="Trophée des légendes" 
-          class="w-full h-full object-contain"
-          style="
-            mask: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.05) 100%);
-            -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.05) 100%);
-          "
-          loading="eager"
-        />
-      </div>
     </div>
     
     <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
