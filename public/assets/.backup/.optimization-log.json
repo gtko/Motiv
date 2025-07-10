@@ -228,5 +228,50 @@
       "fit": "inside",
       "hasInstructions": true
     }
+  },
+  "a_propos-w1280.png": {
+    "originalSize": 6339931,
+    "optimizedSize": 308953,
+    "originalHash": "c74b76230137e04be3b8e7b5b6489063",
+    "currentHash": "7343981762455cb3f1dd620ac0cb5af1",
+    "lastOptimized": "2025-07-10T21:40:54.348Z",
+    "savingsPercent": 95.1,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "login-w1280.png": {
+    "originalSize": 6507832,
+    "optimizedSize": 342849,
+    "originalHash": "2bb90d23980521a84dbb34d6a1f87fc5",
+    "currentHash": "9221316c1c9545a78843e36b20b1200a",
+    "lastOptimized": "2025-07-10T21:48:04.813Z",
+    "savingsPercent": 94.7,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "inscription-w1280.png": {
+    "originalSize": 6236394,
+    "optimizedSize": 362385,
+    "originalHash": "ceab8163ba37b6c48547cfc7b70f88c0",
+    "currentHash": "fd427a88a3f8858c04fd3c6dca580c54",
+    "lastOptimized": "2025-07-10T21:53:47.025Z",
+    "savingsPercent": 94.2,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
   }
 }
