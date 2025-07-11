@@ -80,132 +80,96 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Cristal de Formation -->
-          <div class="group relative">
-            <div class="bg-white rounded-3xl p-8 shadow-soft-lg hover:shadow-soft-xl transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-primary-200 relative overflow-hidden">
-              <!-- Aura du cristal -->
-              <div class="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="group relative h-[350px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+               style="background-image: url('/assets/illustrations/astronaute_et_cristal-w600.png'); background-size: cover; background-position: center;">
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/70 to-neutral-900/30 group-hover:from-neutral-900/98 transition-all duration-500"></div>
+            
+            <!-- Badge de pouvoir -->
+            <div class="absolute top-4 right-4 w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+              1
+            </div>
+            
+            <!-- Content -->
+            <div class="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 class="text-2xl font-black text-white mb-2">
+                Cristal de Formation
+                <span class="block text-sm text-primary-300 font-medium mt-1">🎯 S'entraîner</span>
+              </h3>
+              <p class="text-white/90 text-sm leading-relaxed mb-4">
+                Comme les cristaux précieux forgés dans l'espace, chaque projet vous transforme. 
+                Explorez, échouez, apprenez dans notre laboratoire cosmique bienveillant.
+              </p>
               
-              <!-- Illustration cosmique -->
-              <div class="relative mb-8">
-                <div class="w-28 h-28 mx-auto relative">
-                  <img 
-                    src="/assets/illustrations/astronaute_et_cristal-w600.png" 
-                    alt="Cristal de formation spatiale" 
-                    class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-primary-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                </div>
-                <!-- Badge de pouvoir -->
-                <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  1
-                </div>
-              </div>
-              
-              <div class="relative z-10">
-                <h3 class="text-2xl font-black text-neutral-800 mb-4 text-center">
-                  Cristal de Formation
-                  <span class="block text-sm text-primary-600 font-medium mt-1">🎯 S'entraîner</span>
-                </h3>
-                <p class="text-neutral-600 text-center leading-relaxed">
-                  Comme les cristaux précieux forgés dans l'espace, chaque projet vous transforme. 
-                  Explorez, échouez, apprenez dans notre laboratoire cosmique bienveillant.
+              <!-- Quote mystique -->
+              <div class="p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <p class="text-xs italic text-primary-200 text-center">
+                  "Chaque échec polit votre cristal intérieur"
                 </p>
-                
-                <!-- Quote mystique -->
-                <div class="mt-6 p-4 bg-primary-50 rounded-xl border border-primary-100">
-                  <p class="text-sm italic text-primary-700 text-center">
-                    "Chaque échec polit votre cristal intérieur"
-                  </p>
-                </div>
               </div>
             </div>
           </div>
           
           <!-- Cristal de Connexion -->
-          <div class="group relative">
-            <div class="bg-white rounded-3xl p-8 shadow-soft-lg hover:shadow-soft-xl transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-accent-200 relative overflow-hidden">
-              <!-- Aura du cristal -->
-              <div class="absolute inset-0 bg-gradient-to-br from-accent-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="group relative h-[350px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+               style="background-image: url('/assets/illustrations/explorateurs_drapeau_vert_astéroïde-w600.png'); background-size: 150%; background-position: center;">
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/70 to-neutral-900/30 group-hover:from-neutral-900/98 transition-all duration-500"></div>
+            
+            <!-- Badge de pouvoir -->
+            <div class="absolute top-4 right-4 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+              2
+            </div>
+            
+            <!-- Content -->
+            <div class="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 class="text-2xl font-black text-white mb-2">
+                Cristal de Connexion
+                <span class="block text-sm text-accent-300 font-medium mt-1">🤝 Partager</span>
+              </h3>
+              <p class="text-white/90 text-sm leading-relaxed mb-4">
+                Unis sous le même drapeau galactique, nous partageons découvertes, échecs et victoires. 
+                L'entraide cosmique multiplie la force de chacun.
+              </p>
               
-              <!-- Illustration cosmique -->
-              <div class="relative mb-8">
-                <div class="w-28 h-28 mx-auto relative">
-                  <img 
-                    src="/assets/illustrations/explorateurs_drapeau_vert_astéroïde-w600.png" 
-                    alt="Cristal de connexion spatiale" 
-                    class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-accent-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                </div>
-                <!-- Badge de pouvoir -->
-                <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  2
-                </div>
-              </div>
-              
-              <div class="relative z-10">
-                <h3 class="text-2xl font-black text-neutral-800 mb-4 text-center">
-                  Cristal de Connexion
-                  <span class="block text-sm text-accent-600 font-medium mt-1">🤝 Partager</span>
-                </h3>
-                <p class="text-neutral-600 text-center leading-relaxed">
-                  Unis sous le même drapeau galactique, nous partageons découvertes, échecs et victoires. 
-                  L'entraide cosmique multiplie la force de chacun.
+              <!-- Quote mystique -->
+              <div class="p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <p class="text-xs italic text-accent-200 text-center">
+                  "Ensemble, nous conquérons l'impossible"
                 </p>
-                
-                <!-- Quote mystique -->
-                <div class="mt-6 p-4 bg-accent-50 rounded-xl border border-accent-100">
-                  <p class="text-sm italic text-accent-700 text-center">
-                    "Ensemble, nous conquérons l'impossible"
-                  </p>
-                </div>
               </div>
             </div>
           </div>
           
           <!-- Cristal d'Énergie -->
-          <div class="group relative">
-            <div class="bg-white rounded-3xl p-8 shadow-soft-lg hover:shadow-soft-xl transition-all duration-500 transform hover:-translate-y-2 border border-neutral-100 hover:border-primary-200 relative overflow-hidden">
-              <!-- Aura du cristal -->
-              <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-accent-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="group relative h-[350px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+               style="background-image: url('/assets/illustrations/balise_energie_fusees-w600.png'); background-size: 180%; background-position: center;">
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/70 to-neutral-900/30 group-hover:from-neutral-900/98 transition-all duration-500"></div>
+            
+            <!-- Badge de pouvoir -->
+            <div class="absolute top-4 right-4 w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+              3
+            </div>
+            
+            <!-- Content -->
+            <div class="absolute inset-0 p-8 flex flex-col justify-end">
+              <h3 class="text-2xl font-black text-white mb-2">
+                Cristal d'Énergie
+                <span class="block text-sm text-primary-300 font-medium mt-1">🚀 Se motiver</span>
+              </h3>
+              <p class="text-white/90 text-sm leading-relaxed mb-4">
+                Alimenté par les balises d'énergie cosmique, votre motivation transcende les limites. 
+                Une compétition saine qui propulse vers l'excellence.
+              </p>
               
-              <!-- Illustration cosmique -->
-              <div class="relative mb-8">
-                <div class="w-28 h-28 mx-auto relative">
-                  <img 
-                    src="/assets/illustrations/balise_energie_fusees-w600.png" 
-                    alt="Cristal d'énergie spatiale" 
-                    class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-0 group-hover:opacity-15 transition-opacity duration-500"></div>
-                </div>
-                <!-- Badge de pouvoir -->
-                <div class="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  3
-                </div>
-              </div>
-              
-              <div class="relative z-10">
-                <h3 class="text-2xl font-black text-neutral-800 mb-4 text-center">
-                  Cristal d'Énergie
-                  <span class="block text-sm text-primary-600 font-medium mt-1">🚀 Se motiver</span>
-                </h3>
-                <p class="text-neutral-600 text-center leading-relaxed">
-                  Alimenté par les balises d'énergie cosmique, votre motivation transcende les limites. 
-                  Une compétition saine qui propulse vers l'excellence.
+              <!-- Quote mystique -->
+              <div class="p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <p class="text-xs italic text-primary-200 text-center">
+                  "L'énergie partagée multiplie la puissance"
                 </p>
-                
-                <!-- Quote mystique -->
-                <div class="mt-6 p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl border border-primary-100">
-                  <p class="text-sm italic text-primary-700 text-center">
-                    "L'énergie partagée multiplie la puissance"
-                  </p>
-                </div>
               </div>
             </div>
           </div>
