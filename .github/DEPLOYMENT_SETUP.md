@@ -19,7 +19,6 @@ Allez dans **Settings > Secrets and variables > Actions** et ajoutez les secrets
 ### 2. Secrets d'Application
 
 - **`AUTH_SECRET`** : Clé secrète pour l'authentification (générez une chaîne aléatoire sécurisée)
-- **`DATABASE_URL`** : URL de connexion PostgreSQL (pour les migrations, optionnel)
 
 ### 3. URLs d'API
 

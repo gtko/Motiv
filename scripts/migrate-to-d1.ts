@@ -1,6 +1,4 @@
 import { config } from 'dotenv';
-import { drizzle } from 'drizzle-orm/neon-http';
-import { neon } from '@neondatabase/serverless';
 import * as schema from '../src/db/schema';
 import { generateId } from '../src/db/schema-d1';
 
@@ -25,11 +23,9 @@ function escapeSqlValue(value: any): string {
 
 // Script de migration des données de PostgreSQL vers D1
 async function migrate() {
-  console.log('🚀 Début de la migration vers Cloudflare D1...\n');
-
-  // Connexion à la base PostgreSQL source
-  const sql = neon(process.env.DATABASE_URL!);
-  const pgDb = drizzle(sql);
+  console.log('🚀 Script de migration désactivé - Neon a été supprimé du projet\n');
+  console.log('Pour migrer des données, utilisez un export SQL depuis votre ancienne base de données.');
+  process.exit(0);
 
   try {
     // 1. Exporter les utilisateurs

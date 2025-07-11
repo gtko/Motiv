@@ -1,13 +1,12 @@
+// Drizzle config for Cloudflare D1
 import type { Config } from 'drizzle-kit';
-import { config } from 'dotenv';
-
-config();
 
 export default {
-  dialect: 'postgresql',
-  schema: './src/db/schema.ts',
+  schema: './src/db/schema-d1.ts',
   out: './drizzle',
+  driver: 'd1',
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    wranglerConfigPath: './wrangler.toml',
+    dbName: 'motiv-db',
   },
 } satisfies Config;

@@ -108,21 +108,15 @@ if confirm "Voulez-vous créer les tables dans D1 ?"; then
     show_status $? "Création du schéma"
 fi
 
-# 7. Migration des données (optionnel)
-echo -e "\n${YELLOW}🔄 Migration des données depuis PostgreSQL...${NC}"
-if confirm "Avez-vous des données à migrer depuis PostgreSQL ?"; then
-    if [ -f ".env" ]; then
-        echo "Génération du fichier de migration..."
-        npm run migrate-to-d1
-        if [ $? -eq 0 ] && [ -f "migration-data.sql" ]; then
-            echo -e "${GREEN}✅ Fichier de migration créé${NC}"
-            if confirm "Voulez-vous importer les données maintenant ?"; then
-                $WRANGLER d1 execute motiv-db --file=./migration-data.sql --remote
-                show_status $? "Import des données"
-            fi
-        fi
+# 7. Import des données (optionnel)
+echo -e "\n${YELLOW}📥 Import des données...${NC}"
+if confirm "Avez-vous un fichier SQL à importer dans D1 ?"; then
+    read -p "Chemin du fichier SQL: " SQL_FILE
+    if [ -f "$SQL_FILE" ]; then
+        $WRANGLER d1 execute motiv-db --file="$SQL_FILE" --remote
+        show_status $? "Import des données"
     else
-        echo -e "${RED}⚠️  Fichier .env non trouvé. Assurez-vous que DATABASE_URL est configuré.${NC}"
+        echo -e "${RED}⚠️  Fichier non trouvé: $SQL_FILE${NC}"
     fi
 fi
 
@@ -222,14 +216,7 @@ if command -v gh &> /dev/null; then
             gh secret set PRODUCTION_API_URL -b "${WORKER_URL}/api" -R "$REPO"
             show_status $? "PRODUCTION_API_URL"
             
-            # Database URL (optionnel)
-            if [ -f ".env" ] && grep -q "DATABASE_URL" .env; then
-                if confirm "Voulez-vous ajouter DATABASE_URL depuis .env ?"; then
-                    DB_URL=$(grep "DATABASE_URL" .env | cut -d '=' -f2-)
-                    gh secret set DATABASE_URL -b "$DB_URL" -R "$REPO"
-                    show_status $? "DATABASE_URL"
-                fi
-            fi
+            # Secrets configurés avec succès
             
             echo -e "\n${GREEN}✅ Secrets GitHub configurés !${NC}"
             
@@ -249,7 +236,6 @@ else
     echo "  - CLOUDFLARE_API_TOKEN"
     echo "  - AUTH_SECRET"
     echo "  - PRODUCTION_API_URL"
-    echo "  - DATABASE_URL (optionnel)"
 fi
 
 # Résumé

@@ -90,9 +90,8 @@ id = "VOTRE_ID_KV"
 # Créer les tables
 npm run d1:schema
 
-# Migrer les données (si migration depuis PostgreSQL)
-npm run migrate-to-d1
-npm run d1:migrate
+# Pour importer des données existantes, créez un fichier SQL et exécutez :
+# npx wrangler d1 execute motiv-db --file=./your-data.sql --remote
 ```
 
 ## 🚀 Développement
@@ -215,12 +214,10 @@ Utiliser le dashboard Cloudflare pour :
 
 ## 🔄 Migration depuis l'ancienne architecture
 
-1. Exporter les données PostgreSQL : `npm run migrate-to-d1`
-2. Vérifier `migration-data.sql`
-3. Importer dans D1 : `npm run d1:migrate`
-4. Mettre à jour les imports dans les composants :
+1. Importer les données dans D1 (si vous avez un fichier SQL) : `npm run d1:migrate`
+2. Mettre à jour les imports dans les composants :
    - Remplacer `api-client.ts` par `api-client-cf.ts`
-5. Tester toutes les fonctionnalités
+3. Tester toutes les fonctionnalités
 
 ## 📈 Optimisations Futures
 
