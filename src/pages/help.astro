@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqCategories = [
+  {
+    title: "Démarrage Rapide",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`,
+    color: "primary",
+    questions: [
+      {
+        question: "Comment créer mon premier projet ?",
+        answer: "Pour créer votre premier projet, connectez-vous à votre compte, cliquez sur 'Nouveau Projet' dans votre tableau de bord, remplissez les informations de base (nom, description, type) et validez. Votre projet sera immédiatement visible dans votre portfolio spatial !"
+      },
+      {
+        question: "Qu'est-ce que le système de points ?",
+        answer: "Le système de points gamifie votre expérience entrepreneuriale. Vous gagnez des points pour chaque action : création de projet (100 pts), obtention d'étoiles GitHub (5 pts/étoile), visiteurs uniques (1 pt/visiteur), etc. Ces points vous font monter dans le classement galactique !"
+      },
+      {
+        question: "Comment connecter mon repository GitHub ?",
+        answer: "Dans les paramètres de votre projet, ajoutez simplement l'URL de votre repository GitHub. Motiv synchronisera automatiquement les statistiques comme les étoiles, les forks et les contributions pour calculer vos points."
+      }
+    ]
+  },
+  {
+    title: "Projets & Missions",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+    </svg>`,
+    color: "accent",
+    questions: [
+      {
+        question: "Quels types de projets puis-je créer ?",
+        answer: "Vous pouvez créer trois types de projets : SaaS (applications web avec abonnement), Outils (utilitaires gratuits ou freemium) et Jeux (projets gaming). Chaque type a ses propres métriques et façons de gagner des points."
+      },
+      {
+        question: "Comment modifier ou supprimer un projet ?",
+        answer: "Accédez à votre tableau de bord, trouvez le projet concerné et cliquez sur l'icône d'édition. Vous pourrez modifier toutes les informations ou supprimer le projet. Attention : la suppression est définitive et vous perdrez les points associés !"
+      },
+      {
+        question: "Puis-je collaborer avec d'autres membres ?",
+        answer: "Actuellement, les projets sont individuels pour garantir l'équité du système de points. Cependant, vous pouvez mentionner vos collaborateurs dans la description et partager les retours de la communauté avec eux."
+      }
+    ]
+  },
+  {
+    title: "Communauté",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>`,
+    color: "primary",
+    questions: [
+      {
+        question: "Comment interagir avec la communauté ?",
+        answer: "Explorez les projets des autres membres, laissez des commentaires constructifs, donnez des étoiles aux projets qui vous inspirent. La bienveillance est notre valeur principale : encouragez et soutenez vos pairs dans leur aventure !"
+      },
+      {
+        question: "Existe-t-il un forum ou un chat ?",
+        answer: "Nous préparons un espace de discussion dédié ! En attendant, les interactions se font via les commentaires sur les projets et nos réseaux sociaux. Rejoignez-nous sur Discord pour des échanges en temps réel."
+      },
+      {
+        question: "Comment signaler un comportement inapproprié ?",
+        answer: "La bienveillance est essentielle chez Motiv. Si vous constatez un comportement inapproprié, utilisez le bouton de signalement présent sur chaque profil/projet ou contactez-nous directement à support@motiv.space."
+      }
+    ]
+  },
+  {
+    title: "Compte & Sécurité",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+    </svg>`,
+    color: "accent",
+    questions: [
+      {
+        question: "Comment modifier mes informations personnelles ?",
+        answer: "Accédez à votre profil via l'icône utilisateur, puis 'Paramètres'. Vous pourrez modifier votre nom, bio, avatar et préférences de notification. Les changements sont sauvegardés automatiquement."
+      },
+      {
+        question: "J'ai oublié mon mot de passe, que faire ?",
+        answer: "Sur la page de connexion, cliquez sur 'Mot de passe oublié'. Entrez votre email et vous recevrez un lien de réinitialisation valable 24h. Vérifiez vos spams si vous ne recevez rien après 5 minutes."
+      },
+      {
+        question: "Comment supprimer mon compte ?",
+        answer: "Dans les paramètres de votre compte, section 'Danger Zone', vous trouverez l'option de suppression. Cette action est irréversible : tous vos projets, points et données seront définitivement effacés après 30 jours."
+      }
+    ]
+  },
+  {
+    title: "Technique",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>`,
+    color: "primary",
+    questions: [
+      {
+        question: "Quels navigateurs sont supportés ?",
+        answer: "Motiv fonctionne sur tous les navigateurs modernes : Chrome/Edge (88+), Firefox (78+), Safari (14+), Opera (74+). Pour une expérience optimale, nous recommandons d'utiliser la dernière version de votre navigateur."
+      },
+      {
+        question: "L'application est-elle disponible sur mobile ?",
+        answer: "Motiv est entièrement responsive et fonctionne parfaitement sur mobile via votre navigateur. Une application native est en développement pour offrir une expérience encore plus fluide sur iOS et Android."
+      },
+      {
+        question: "Comment sont calculées les statistiques ?",
+        answer: "Les stats sont mises à jour toutes les heures. GitHub : synchronisation API directe. Visiteurs : comptage unique par IP/24h. Uptime : ping toutes les 5 minutes. Les points sont recalculés en temps réel."
+      }
+    ]
+  }
+];
+
+const quickLinks = [
+  {
+    title: "Guide du Débutant",
+    description: "Tout ce qu'il faut savoir pour bien démarrer",
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+    </svg>`,
+    link: "#demarrage-rapide"
+  },
+  {
+    title: "Système de Points",
+    description: "Comment gagner et utiliser vos points",
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+    </svg>`,
+    link: "#demarrage-rapide"
+  },
+  {
+    title: "Créer un Projet",
+    description: "Lancez votre première mission spatiale",
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+    </svg>`,
+    link: "/projects"
+  },
+  {
+    title: "Règles Communautaires",
+    description: "Nos valeurs et code de conduite",
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>`,
+    link: "#communaute"
+  }
+];
+---
+
+<Layout title="Centre d'Aide">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary-600 via-primary-700 to-accent-700 text-white py-20">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="relative max-w-6xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-black mb-6">
+        Centre d'Aide
+        <span class="block text-2xl md:text-3xl font-normal mt-4 text-primary-200">
+          Votre guide de navigation spatiale
+        </span>
+      </h1>
+      
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto mt-12">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Rechercher dans l'aide..."
+            class="w-full px-6 py-4 pl-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-white/40 transition-all"
+          />
+          <svg class="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold">24/7</div>
+          <div class="text-sm text-white/80">Support disponible</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold">5min</div>
+          <div class="text-sm text-white/80">Temps de réponse</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold">100%</div>
+          <div class="text-sm text-white/80">Gratuit</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl font-bold">15+</div>
+          <div class="text-sm text-white/80">Articles d'aide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-12 bg-neutral-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {quickLinks.map((link) => (
+          <a href={link.link} class="group bg-white rounded-xl p-6 border border-neutral-200 hover:border-primary-300 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 group-hover:bg-primary-200 flex items-center justify-center mb-4 transition-colors">
+              <Fragment set:html={link.icon} />
+            </div>
+            <h3 class="font-bold text-neutral-800 mb-2 group-hover:text-primary-600 transition-colors">{link.title}</h3>
+            <p class="text-sm text-neutral-600">{link.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black text-neutral-800 mb-4">
+          Questions Fréquentes
+        </h2>
+        <p class="text-xl text-neutral-600">
+          Trouvez rapidement les réponses à vos questions
+        </p>
+      </div>
+      
+      <div class="space-y-8">
+        {faqCategories.map((category, categoryIndex) => (
+          <div id={category.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'et')} class="scroll-mt-24">
+            <!-- Category Header -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class={`w-12 h-12 rounded-xl bg-${category.color}-100 flex items-center justify-center text-${category.color}-600`}>
+                <Fragment set:html={category.icon} />
+              </div>
+              <h3 class="text-2xl font-bold text-neutral-800">{category.title}</h3>
+            </div>
+            
+            <!-- Questions -->
+            <div class="space-y-4">
+              {category.questions.map((qa, index) => (
+                <details class="group bg-white rounded-xl border border-neutral-200 hover:border-primary-300 transition-all">
+                  <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <h4 class="font-semibold text-neutral-800 pr-4">{qa.question}</h4>
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-neutral-100 group-hover:bg-primary-100 flex items-center justify-center transition-colors">
+                      <svg class="w-4 h-4 text-neutral-600 group-hover:text-primary-600 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </summary>
+                  <div class="px-6 pb-6">
+                    <p class="text-neutral-600 leading-relaxed">{qa.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-gradient-to-br from-primary-50 to-accent-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="bg-white rounded-3xl p-12 md:p-16 shadow-xl border border-primary-100">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="w-20 h-20 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-black text-neutral-800 mb-6">
+            Besoin d'aide supplémentaire ?
+          </h2>
+          <p class="text-xl text-neutral-600 mb-12">
+            Notre équipe est là pour vous accompagner dans votre aventure spatiale.
+            <br />
+            N'hésitez pas à nous contacter !
+          </p>
+          
+          <!-- Contact Options -->
+          <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-neutral-50 rounded-xl p-6">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-neutral-800 mb-2">Email</h3>
+              <p class="text-sm text-neutral-600">support@motiv.space</p>
+              <p class="text-xs text-neutral-500 mt-1">Réponse sous 24h</p>
+            </div>
+            
+            <div class="bg-neutral-50 rounded-xl p-6">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-accent-100 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-neutral-800 mb-2">Discord</h3>
+              <p class="text-sm text-neutral-600">@motivspace</p>
+              <p class="text-xs text-neutral-500 mt-1">Chat en direct</p>
+            </div>
+            
+            <div class="bg-neutral-50 rounded-xl p-6">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-neutral-800 mb-2">FAQ</h3>
+              <p class="text-sm text-neutral-600">Centre d'aide</p>
+              <p class="text-xs text-neutral-500 mt-1">Disponible 24/7</p>
+            </div>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:support@motiv.space" class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Contactez-nous
+              </span>
+            </a>
+            <a href="/about" class="px-8 py-4 bg-white border-2 border-neutral-200 hover:border-primary-300 text-neutral-700 hover:text-primary-600 font-bold rounded-xl transition-all">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Navigation -->
+  <section class="py-12 bg-neutral-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
+        <a href="/terms" class="text-neutral-600 hover:text-primary-600 transition-colors">Conditions d'utilisation</a>
+        <span class="text-neutral-400">•</span>
+        <a href="/privacy" class="text-neutral-600 hover:text-primary-600 transition-colors">Politique de confidentialité</a>
+        <span class="text-neutral-400">•</span>
+        <a href="/cookies" class="text-neutral-600 hover:text-primary-600 transition-colors">Gestion des cookies</a>
+        <span class="text-neutral-400">•</span>
+        <a href="/about" class="text-neutral-600 hover:text-primary-600 transition-colors">À propos</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details[open] summary ~ * {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
