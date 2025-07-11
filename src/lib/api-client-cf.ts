@@ -230,4 +230,53 @@ class ApiClientCF {
   }
 }
 
-export const apiClient = new ApiClientCF();
+class ApiClientCompat extends ApiClientCF {
+  // Compatibility methods for old API
+  async getUser(username: string) {
+    const response = await this.getUserProfile(username);
+    if (response.error) return null;
+    return response.data?.user;
+  }
+
+  async getProjects(params?: any) {
+    const response = await super.getProjects(params);
+    if (response.error) return [];
+    return response.data?.projects || [];
+  }
+
+  async getUserBadges(userId: string) {
+    const response = await super.getUserBadges(userId);
+    if (response.error) return [];
+    return response.data?.badges || [];
+  }
+
+  async login(emailOrUsername: string, password: string) {
+    const email = emailOrUsername.includes('@') ? emailOrUsername : '';
+    const username = !email ? emailOrUsername : '';
+    
+    // Try with email first if it's an email
+    if (email) {
+      const response = await super.login(email, password);
+      if (!response.error) return response.data;
+    }
+    
+    // If not email or email failed, we can't login with username in the new API
+    // This is a limitation - the new API only accepts email
+    return null;
+  }
+
+  async register(email: string, username: string, password: string, name?: string) {
+    const response = await super.register({ email, username, password, name });
+    if (response.error) return null;
+    return response.data;
+  }
+}
+
+export const apiClient = new ApiClientCompat();
+export const ApiClient = {
+  getUser: (username: string) => apiClient.getUser(username),
+  getProjects: (params?: any) => apiClient.getProjects(params),
+  getUserBadges: (userId: string) => apiClient.getUserBadges(userId),
+  login: (emailOrUsername: string, password: string) => apiClient.login(emailOrUsername, password),
+  register: (email: string, username: string, password: string, name?: string) => apiClient.register(email, username, password, name)
+};

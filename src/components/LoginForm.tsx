@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ApiClient } from '../lib/api-client';
+import { ApiClient } from '../lib/api-client-cf';
 import { authClient } from '../lib/auth-client';
 
 export default function LoginForm() {

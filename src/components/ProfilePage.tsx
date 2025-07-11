@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ApiClient } from '../lib/api-client';
+import { ApiClient } from '../lib/api-client-cf';
 import ProjectCard from './ProjectCard';
 
 interface User {

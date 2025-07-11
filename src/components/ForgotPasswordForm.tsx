@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ApiClient } from '../lib/api-client';
+// import { apiClient } from '../lib/api-client-cf'; // TODO: Implement password reset
 
 export default function ForgotPasswordForm() {
   const [email, setEmail] = useState('');
