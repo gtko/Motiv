@@ -100,7 +100,7 @@ export default function RegisterForm() {
               
               {/* Why join us */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="font-bold text-white mb-6 text-lg">🚀 Votre mission commence ici</h3>
+                <h3 className="font-bold text-white mb-6 text-lg">Votre mission commence ici</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary-300/20 flex items-center justify-center">

@@ -67,28 +67,39 @@ export default function LoginForm() {
               
               {/* Platform features */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="font-bold text-white mb-6 text-lg">✨ Bienvenue dans l'écosystème Motiv</h3>
+                <h3 className="font-bold text-white mb-6 text-lg">Connexion au Centre Spatial</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl mt-0.5">🚀</span>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Lancez vos projets</p>
-                      <p className="text-sm text-white/70">Créez et développez vos idées dans un environnement bienveillant</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
                     </div>
+                    <span className="text-white/80">Retrouvez vos missions en cours</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl mt-0.5">🏆</span>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Gagnez des points</p>
-                      <p className="text-sm text-white/70">Chaque action compte dans votre progression galactique</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-accent-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
                     </div>
+                    <span className="text-white/80">Suivez votre progression galactique</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl mt-0.5">🌟</span>
-                    <div>
-                      <p className="font-semibold text-white mb-1">Rejoignez la communauté</p>
-                      <p className="text-sm text-white/70">Partagez, apprenez et grandissez avec d'autres créateurs</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
                     </div>
+                    <span className="text-white/80">Connectez avec votre équipage</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-accent-300/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-accent-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/80">Accédez à vos récompenses</span>
                   </div>
                 </div>
               </div>
