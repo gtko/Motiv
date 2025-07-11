@@ -273,5 +273,35 @@
       "fit": "inside",
       "hasInstructions": true
     }
+  },
+  "access_denied-w1280.png": {
+    "originalSize": 5068151,
+    "optimizedSize": 409754,
+    "originalHash": "00454c64cd257e687da882ee06ab9f7a",
+    "currentHash": "9a44696bbb6679af815c7f184364aa49",
+    "lastOptimized": "2025-07-11T00:39:23.861Z",
+    "savingsPercent": 91.9,
+    "wasResized": true,
+    "resizeInstructions": {
+      "width": 1280,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
+  },
+  "balise_energie_fusees-w600.png": {
+    "originalSize": 189360,
+    "optimizedSize": 144943,
+    "originalHash": "cd24ba54a478ffbe27e71dccee0019cd",
+    "currentHash": "3def0fe32fdaeed5d49d7a94d0d7ef1a",
+    "lastOptimized": "2025-07-11T00:39:24.010Z",
+    "savingsPercent": 23.5,
+    "wasResized": false,
+    "resizeInstructions": {
+      "width": 600,
+      "height": null,
+      "fit": "inside",
+      "hasInstructions": true
+    }
   }
 }
