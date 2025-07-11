@@ -1,33 +1,47 @@
 {
-  "name": "apparent-altitude",
+  "name": "motiv",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
     "favicon": "node scripts/generate-favicon.js",
+    "seed": "npx tsx scripts/seed.ts",
     "optimize-images": "node scripts/optimize-images.js",
     "optimize-images:force": "node scripts/optimize-images.js --force",
-    "build-assets": "npm run favicon && npm run optimize-images"
+    "build-assets": "npm run favicon && npm run optimize-images",
+    "migrate-to-d1": "npx tsx scripts/migrate-to-d1.ts",
+    "workers:dev": "wrangler dev workers/index.ts",
+    "workers:deploy": "wrangler deploy",
+    "d1:create": "wrangler d1 create motiv-db",
+    "d1:schema": "wrangler d1 execute motiv-db --file=./src/db/schema-d1.sql --local",
+    "d1:migrate": "wrangler d1 execute motiv-db --file=./migration-data.sql --local",
+    "pages:deploy": "npm run build && wrangler pages deploy dist"
   },
   "dependencies": {
     "@astrojs/node": "^9.3.0",
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
+    "@hono/node-server": "^1.15.0",
     "@neondatabase/serverless": "^1.0.1",
+    "@paralleldrive/cuid2": "^2.2.2",
     "@stackframe/stack": "^2.8.19",
     "@types/marked": "^6.0.0",
     "astro": "^5.11.0",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.1.0",
     "drizzle-orm": "^0.44.2",
+    "hono": "^4.8.4",
+    "itty-router": "^5.0.18",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.525.0",
-    "marked": "^16.0.0"
+    "marked": "^16.0.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250711.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/bcryptjs": "^3.0.0",
     "@types/jsonwebtoken": "^9.0.10",
@@ -35,6 +49,8 @@
     "imagemin": "^9.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
-    "sharp": "^0.34.2"
+    "miniflare": "^4.20250709.0",
+    "sharp": "^0.34.2",
+    "wrangler": "^4.24.3"
   }
 }

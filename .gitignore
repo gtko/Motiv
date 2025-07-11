@@ -26,3 +26,9 @@ pnpm-debug.log*
 
 # Image optimization backups
 public/assets/.backup/
+
+# Cloudflare
+.wrangler/
+.dev.vars
+wrangler.toml.backup
+migration-data.sql

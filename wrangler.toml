@@ -1,0 +1,38 @@
+name = "motiv-app"
+main = "workers/index.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "motiv-db"
+database_id = "796f0535-9ae0-4661-bd81-0541204d738a"
+
+# KV Namespaces for sessions
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "3b411963c66e49308726624a1c37bd03"
+
+# R2 Storage for media
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "motiv-media"
+
+# Environment variables
+[vars]
+AUTH_SECRET = "your-auth-secret-here"
+FRONTEND_URL = "http://localhost:4321"
+
+# Development settings
+[env.development]
+vars = { ENVIRONMENT = "development" }
+
+# Preview settings (for PR previews)
+[env.preview]
+name = "motiv-app-preview"
+vars = { ENVIRONMENT = "preview" }
+
+# Production settings
+[env.production]
+name = "motiv-app"
+vars = { ENVIRONMENT = "production", FRONTEND_URL = "https://motiv.pages.dev" }
