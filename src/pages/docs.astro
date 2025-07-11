@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DocSidebar from '../components/DocSidebar.tsx';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+
+// Get all documentation entries
+const docs = await getCollection('docs');
+
+// Group docs by category
+const docsByCategory = docs.reduce((acc, doc) => {
+  const category = doc.data.category || 'Général';
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, typeof docs>);
+
+// Sort docs within each category by order
+Object.keys(docsByCategory).forEach(category => {
+  docsByCategory[category].sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+});
+
+// Get the first doc to display by default
+const firstDoc = docs.find(doc => doc.slug === 'getting-started') || docs[0];
+
+// Configure marked options
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+  headerIds: true,
+  mangle: false,
+});
+
+// Convert markdown to HTML for the first doc
+const firstDocHtml = firstDoc ? await marked(firstDoc.body) : '';
+---
+
+<Layout title="Documentation">
+  <section class="min-h-screen bg-white pt-20">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-primary-50 to-accent-50 border-b border-neutral-200">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-bold text-neutral-800 mb-2">Documentation Motiv</h1>
+        <p class="text-lg text-neutral-600">Tout ce que vous devez savoir pour démarrer et réussir sur Motiv</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1">
+          <DocSidebar categories={docsByCategory} currentSlug={firstDoc?.slug} client:load />
+        </aside>
+
+        <!-- Content -->
+        <main class="lg:col-span-3">
+          <article id="doc-content" class="bg-white rounded-xl p-8 border border-neutral-200 shadow-soft">
+            {firstDoc && (
+              <div class="prose prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h1:text-neutral-800 prose-h2:text-2xl prose-h2:text-neutral-800 prose-h3:text-xl prose-h3:text-neutral-700 prose-p:text-neutral-600 prose-p:leading-relaxed prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700 prose-strong:text-neutral-700 prose-code:bg-neutral-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-primary-600 prose-pre:bg-neutral-900 prose-pre:text-white prose-ol:list-decimal prose-ul:list-disc prose-li:text-neutral-600 prose-blockquote:border-l-4 prose-blockquote:border-primary-300 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-neutral-600">
+                <h1 class="text-3xl font-bold text-neutral-800 mb-6">{firstDoc.data.title}</h1>
+                <div set:html={firstDocHtml} />
+              </div>
+            )}
+          </article>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Handle sidebar navigation clicks
+    document.addEventListener('astro:page-load', () => {
+      // Re-attach event listeners after page navigation
+      const sidebar = document.querySelector('aside');
+      if (sidebar) {
+        // Event listeners will be handled by the React component
+      }
+    });
+  </script>
+</Layout>
