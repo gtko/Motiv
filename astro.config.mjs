@@ -15,7 +15,7 @@ export default defineConfig({
   vite: {
     define: {
       'import.meta.env.PUBLIC_API_URL': JSON.stringify(
-        process.env.PUBLIC_API_URL || 'https://motiv-app.gtux-prog.workers.dev/api'
+        process.env.PUBLIC_API_URL
       ),
     },
   },

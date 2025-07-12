@@ -13,6 +13,21 @@ const app = new Hono<{ Bindings: Env }>();
 app.use('*', logger());
 app.use('*', corsMiddleware);
 
+// Gestion explicite des requêtes OPTIONS pour toutes les routes
+app.options('*', (c) => {
+  const origin = c.req.header('Origin') || '';
+  const isDevelopment = c.env.ENVIRONMENT === 'development' || !c.env.ENVIRONMENT;
+  
+  if (isDevelopment && origin.includes('localhost')) {
+    c.header('Access-Control-Allow-Origin', origin);
+    c.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    c.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    c.header('Access-Control-Allow-Credentials', 'true');
+  }
+  
+  return new Response(null, { status: 204 });
+});
+
 // Routes API
 app.route('/api/auth', authRoutes);
 app.route('/api/projects', projectRoutes);
