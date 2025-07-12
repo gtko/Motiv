@@ -36,12 +36,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env production
           workingDirectory: .
-          secrets: |
-            AUTH_SECRET
-          vars: |
-            FRONTEND_URL=https://motiv.pages.dev
-        env:
-          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
       
       - name: Deploy to Cloudflare Pages Production
         uses: cloudflare/wrangler-action@v3

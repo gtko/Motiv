@@ -36,12 +36,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env preview --name motiv-app-preview-${{ github.event.pull_request.number }}
           workingDirectory: .
-          secrets: |
-            AUTH_SECRET
-          vars: |
-            FRONTEND_URL=https://preview-${{ github.event.pull_request.number }}.motiv.pages.dev
-        env:
-          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
       
       - name: Deploy to Cloudflare Pages Preview
         id: cloudflare
