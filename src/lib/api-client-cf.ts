@@ -251,17 +251,19 @@ class ApiClientCompat extends ApiClientCF {
   }
 
   async login(emailOrUsername: string, password: string) {
-    const email = emailOrUsername.includes('@') ? emailOrUsername : '';
-    const username = !email ? emailOrUsername : '';
-    
-    // Try with email first if it's an email
-    if (email) {
-      const response = await super.login(email, password);
-      if (!response.error) return response.data;
+    const response = await this.request<{ user: any; token: string }>(
+      '/auth/login',
+      {
+        method: 'POST',
+        body: JSON.stringify({ emailOrUsername, password }),
+      }
+    );
+
+    if (response.data) {
+      authClient.login(response.data.user, response.data.token);
+      return response.data;
     }
-    
-    // If not email or email failed, we can't login with username in the new API
-    // This is a limitation - the new API only accepts email
+
     return null;
   }
 

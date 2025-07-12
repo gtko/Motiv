@@ -17,7 +17,7 @@ const registerSchema = z.object({
 });
 
 const loginSchema = z.object({
-  email: z.string().email(),
+  emailOrUsername: z.string().min(3),
   password: z.string(),
 });
 
@@ -92,16 +92,21 @@ auth.post('/register', async (c) => {
 auth.post('/login', async (c) => {
   try {
     const body = await c.req.json();
-    const { email, password } = loginSchema.parse(body);
+    const { emailOrUsername, password } = loginSchema.parse(body);
     
     const db = getDb(c.env);
     const authService = new AuthService(c.env);
 
-    // Chercher l'utilisateur
+    // Chercher l'utilisateur par email ou username
+    const isEmail = emailOrUsername.includes('@');
     const [user] = await db
       .select()
       .from(schema.users)
-      .where(eq(schema.users.email, email))
+      .where(
+        isEmail 
+          ? eq(schema.users.email, emailOrUsername)
+          : eq(schema.users.username, emailOrUsername)
+      )
       .limit(1);
 
     if (!user) {
@@ -132,6 +137,13 @@ auth.post('/login', async (c) => {
       return c.json({ error: 'Données invalides', details: error.errors }, 400);
     }
     console.error('Erreur lors de la connexion:', error);
+    // Return more detailed error in development
+    if (c.env.ENVIRONMENT === 'development') {
+      return c.json({ 
+        error: 'Erreur lors de la connexion', 
+        details: error instanceof Error ? error.message : String(error) 
+      }, 500);
+    }
     return c.json({ error: 'Erreur lors de la connexion' }, 500);
   }
 });
