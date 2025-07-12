@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Dashboard from '../components/Dashboard';
+
+// This page needs server-side rendering to read cookies
+export const prerender = false;
+
+// L'utilisateur est fourni par le middleware si authentifié
+const user = Astro.locals.user;
+---
+
+<Layout title="Dashboard - Motiv">
+  <main class="min-h-screen bg-gray-50 pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Tableau de bord</h1>
+        {user ? (
+          <p class="mt-2 text-gray-600">Bienvenue, {user.name || user.username} !</p>
+        ) : (
+          <p class="mt-2 text-gray-600">Vous n'êtes pas connecté</p>
+        )}
+      </div>
+
+      <!-- Dashboard Component -->
+      <Dashboard client:load />
+    </div>
+  </main>
+</Layout>

@@ -56,6 +56,8 @@ class AuthClient {
           token,
           isAuthenticated: true
         };
+        
+        // Cookie will be set by server-side API
       }
     } catch (error) {
       console.error('Erreur lors du chargement depuis localStorage:', error);
@@ -108,7 +110,14 @@ class AuthClient {
     this.notifyListeners();
   }
 
-  logout() {
+  async logout() {
+    // Call logout API to clear server-side session
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch (error) {
+      console.error('Error calling logout API:', error);
+    }
+    
     this.authState = {
       user: null,
       token: null,

@@ -13,7 +13,7 @@ export interface ApiResponse<T> {
   error?: ApiError;
 }
 
-class ApiClientCF {
+export class ApiClientCF {
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -250,21 +250,29 @@ class ApiClientCompat extends ApiClientCF {
     return response.data?.badges || [];
   }
 
-  async login(emailOrUsername: string, password: string) {
-    const response = await this.request<{ user: any; token: string }>(
-      '/auth/login',
-      {
+  async login(emailOrUsername: string, password: string): Promise<{ user: any; token: string } | null> {
+    try {
+      // Use Astro API endpoint to handle cookie setting server-side
+      const response = await fetch('/api/auth/login', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ emailOrUsername, password }),
+      });
+
+      const data = await response.json() as { user: any; token: string; error?: string };
+
+      if (response.ok && data.user && data.token) {
+        authClient.login(data.user, data.token);
+        return data;
       }
-    );
 
-    if (response.data) {
-      authClient.login(response.data.user, response.data.token);
-      return response.data;
+      return null;
+    } catch (error) {
+      console.error('Login error:', error);
+      return null;
     }
-
-    return null;
   }
 
   async register(email: string, username: string, password: string, name?: string) {
